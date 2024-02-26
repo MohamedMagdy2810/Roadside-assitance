@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:roadside_assitance/constants.dart';
 
-class serviseCard extends StatelessWidget {
-  const serviseCard({super.key});
+class servicesCard extends StatelessWidget {
+  const servicesCard({super.key});
 
   @override
   Widget build(BuildContext context) {

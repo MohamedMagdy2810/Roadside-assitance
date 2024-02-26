@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         LogInPage.Id: (context) =>const  LogInPage(),
         homeView.Id: (context) =>const  homeView(),
       },
-      home:const LogInPage(),
+      home: registerPage(),
       
     );}
      

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:roadside_assitance/constants.dart';
 
-class CustomTextField extends StatelessWidget {
-  CustomTextField(
+class CustomPasswordField extends StatelessWidget {
+  CustomPasswordField(
       {super.key, required this.hintText, this.onSaved, this.obsecureText = false,  this.isPassword=false});
   final String hintText;
   Function(String?)? onSaved;
@@ -25,9 +25,11 @@ class CustomTextField extends StatelessWidget {
           },
           onSaved: onSaved,
           decoration: InputDecoration(
+            suffixIcon: Icon(FontAwesomeIcons.solidEyeSlash,size: 20,color: lightGreen.withOpacity(.45),
+            ),
           
               hintText: hintText,
-              hintStyle:  TextStyle(color:Color(0xff2B5F1D).withOpacity(.45),fontSize: 15),
+              hintStyle:  TextStyle(color:lightGreen.withOpacity(.45),fontSize: 15),
               enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
                   borderSide: const BorderSide(color: KprimaryColor)),
