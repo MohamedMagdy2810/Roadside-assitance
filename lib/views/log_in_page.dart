@@ -18,7 +18,7 @@ class LogInPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: lightWhite,
+        backgroundColor: Colors.amber,
       ),
       backgroundColor: lightWhite,
       body: SingleChildScrollView(
