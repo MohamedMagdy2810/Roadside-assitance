@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:roadside_assitance/constants.dart';
-import 'package:roadside_assitance/widgets/custom_button.dart';
-import 'package:roadside_assitance/widgets/custom_service_card.dart';
-import 'package:roadside_assitance/widgets/services_type.dart';
 
 class homeViewBody extends StatelessWidget {
   const homeViewBody({
@@ -12,7 +9,7 @@ class homeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -23,7 +20,7 @@ class homeViewBody extends StatelessWidget {
                 child:  Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text(
+                  Text(
                       'Request service',
                       style: TextStyle(color: lightWhite, fontSize: 28),
                     ),
@@ -41,7 +38,7 @@ class homeViewBody extends StatelessWidget {
             child: Text(
               'Current requests',
               style: TextStyle(
-                  color: Color(0xff275217),
+                  color: Colors.white,
                   fontSize: 22,
                   fontWeight: FontWeight.bold),
             ),

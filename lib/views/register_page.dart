@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+
 import 'package:roadside_assitance/constants.dart';
 import 'package:roadside_assitance/views/home_view.dart';
 import 'package:roadside_assitance/views/log_in_page.dart';
 import 'package:roadside_assitance/widgets/custom_button.dart';
-import 'package:roadside_assitance/widgets/custom_icons_row.dart';
+
 import 'package:roadside_assitance/widgets/custom_password_field.dart';
 import 'package:roadside_assitance/widgets/custom_text_field.dart';
-import 'package:roadside_assitance/widgets/cutom_text_row_divider.dart';
+
 
 class registerPage extends StatelessWidget {
   registerPage({

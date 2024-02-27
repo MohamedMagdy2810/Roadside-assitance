@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:roadside_assitance/constants.dart';
+
 
 class settingsView extends StatelessWidget {
   const settingsView({super.key});
