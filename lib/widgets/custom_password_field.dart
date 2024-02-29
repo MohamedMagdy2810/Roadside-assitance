@@ -4,11 +4,18 @@ import 'package:roadside_assitance/constants.dart';
 
 class CustomPasswordField extends StatelessWidget {
   CustomPasswordField(
-      {super.key, required this.hintText, this.onSaved, this.obsecureText = false,  this.isPassword=false});
+      {
+        super.key, 
+        required this.hintText, 
+        this.onSaved, 
+        this.obsecureText = false,  
+        this.isPassword=false,
+        });
   final String hintText;
   Function(String?)? onSaved;
   bool obsecureText;
   bool? isPassword ;
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -16,7 +23,7 @@ class CustomPasswordField extends StatelessWidget {
       child: SizedBox(
         height: 50,
         child: TextFormField(
-          
+
           obscureText: obsecureText,
           validator: (data) {
             if (data!.isEmpty) {

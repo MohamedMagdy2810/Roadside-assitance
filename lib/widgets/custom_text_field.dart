@@ -4,7 +4,15 @@ import 'package:roadside_assitance/constants.dart';
 
 class CustomTextField extends StatelessWidget {
   CustomTextField(
-      {super.key, required this.hintText, this.onSaved, this.obsecureText = false,  this.isPassword=false});
+      {
+        super.key, 
+        required this.hintText, 
+        this.onSaved, 
+        this.obsecureText = false,  
+        this.isPassword=false
+        
+        
+        });
   final String hintText;
   Function(String?)? onSaved;
   bool obsecureText;
@@ -16,7 +24,6 @@ class CustomTextField extends StatelessWidget {
       child: SizedBox(
         height: 50,
         child: TextFormField(
-          
           obscureText: obsecureText,
           validator: (data) {
             if (data!.isEmpty) {
@@ -24,8 +31,8 @@ class CustomTextField extends StatelessWidget {
             }
           },
           onSaved: onSaved,
-          decoration: InputDecoration(
           
+          decoration: InputDecoration(
               hintText: hintText,
               hintStyle:  TextStyle(color:Color(0xff2B5F1D).withOpacity(.45),fontSize: 15),
               enabledBorder: OutlineInputBorder(
