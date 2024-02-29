@@ -17,16 +17,14 @@ class LogInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-      ),
+     
       backgroundColor: lightWhite,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 50, right: 24, left: 24),
+              padding: const EdgeInsets.only(top: 150, right: 24, left: 24),
               child: Container(
                 width: double.infinity,
                 height: 550,
@@ -41,6 +39,7 @@ class LogInPage extends StatelessWidget {
                   const SizedBox(
                     height: 50,
                   ),
+                  
                   CustomTextField(hintText: 'Email address'),
                   const SizedBox(
                     height: 16,

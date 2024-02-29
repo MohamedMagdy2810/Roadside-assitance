@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:roadside_assitance/constants.dart';
+import 'package:roadside_assitance/widgets/custom_request_service.dart';
 
 class homeViewBody extends StatelessWidget {
   const homeViewBody({
@@ -33,16 +34,18 @@ class homeViewBody extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8),
                     color: const Color(0xff275217)),
               )),
+
          const Padding(
             padding:  EdgeInsets.only(left:16.0),
             child: Text(
               'Current requests',
               style: TextStyle(
-                  color: Colors.white,
+                  color: lightGreen,
                   fontSize: 22,
                   fontWeight: FontWeight.bold),
             ),
-          )
+          ),
+          customRequestWidget()
         ],
       ),
     );
