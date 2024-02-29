@@ -1,13 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:roadside_assitance/constants.dart';
-import 'package:roadside_assitance/views/home_view.dart';
-import 'package:roadside_assitance/views/register_page.dart';
-import 'package:roadside_assitance/widgets/custom_button.dart';
-import 'package:roadside_assitance/widgets/custom_icons_row.dart';
-import 'package:roadside_assitance/widgets/custom_password_field.dart';
-import 'package:roadside_assitance/widgets/custom_text_field.dart';
-import 'package:roadside_assitance/widgets/cutom_text_row_divider.dart';
-
 class LogInPage extends StatelessWidget {
   static String Id = 'logInPage';
   const LogInPage({
