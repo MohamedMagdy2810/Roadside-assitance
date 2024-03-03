@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:roadside_assitance/constants.dart';
-import 'package:roadside_assitance/widgets/custom_request_service.dart';
+import 'package:roadside_assitance/views/services_page.dart';
+import 'package:roadside_assitance/widgets/custom_request_service_card.dart';
 
 class homeViewBody extends StatelessWidget {
   const homeViewBody({
@@ -17,22 +18,26 @@ class homeViewBody extends StatelessWidget {
           Padding(
               padding:
                   const EdgeInsets.symmetric(vertical: 32.0, horizontal: 32),
-              child: Container(
-                child:  Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                  Text(
-                      'Request service',
-                      style: TextStyle(color: lightWhite, fontSize: 28),
-                    ),
-                    Icon(FontAwesomeIcons.screwdriverWrench)
-                  ],
+              child:  GestureDetector(
+                onTap: (){
+                  Navigator.pushNamed(context, ServivesView.ID);
+                },
+                child: Container (  child:  const Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                    Text(
+                        'Request service',
+                        style: TextStyle(color: lightWhite, fontSize: 28),
+                      ),
+                      Icon(FontAwesomeIcons.screwdriverWrench)
+                    ],
+                  ),
+                  height: 60,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: const Color(0xff275217)),
                 ),
-                height: 60,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: const Color(0xff275217)),
               )),
 
          const Padding(
@@ -45,7 +50,7 @@ class homeViewBody extends StatelessWidget {
                   fontWeight: FontWeight.bold),
             ),
           ),
-          customRequestWidget()
+        const  customRequestWidget()
         ],
       ),
     );

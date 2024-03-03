@@ -9,7 +9,7 @@ class servicesCard extends StatelessWidget {
     
     return Card(
       color: KprimaryColor,
-      shadowColor: Colors.grey,
+    
     );
   }
 }

@@ -28,7 +28,7 @@ class _homeViewState extends State<homeView> {
           height: 32,
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(8),
           color: Colors.white),
-           child: Row(
+           child:const Row(
             mainAxisSize: MainAxisSize.min,
             children: [
               SizedBox(
@@ -46,7 +46,7 @@ class _homeViewState extends State<homeView> {
          ),
        ),
        
-        backgroundColor:Color(0xff275217),
+        backgroundColor:const Color(0xff275217),
         // title: const Text(
         //   'Services type',
         //   style: TextStyle(fontWeight: FontWeight.bold, color: KprimaryColor),

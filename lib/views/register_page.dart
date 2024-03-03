@@ -92,7 +92,7 @@ bool isTrue_two = true;
                   return null;
                 },
                 suffix:isTrue ? FontAwesomeIcons.solidEyeSlash : FontAwesomeIcons.solidEye,
-                icon_colol:isTrue? lightGreen.withOpacity(.45) :Colors.lightBlue.withOpacity(.45),
+                icon_colol:isTrue? lightGreen.withOpacity(.45) :lightGreen.withOpacity(.45),
                 controller: passwordController_reg,
                 suffixPressed:() {
                   setState(() {
