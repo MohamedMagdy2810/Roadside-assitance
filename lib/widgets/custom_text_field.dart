@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:roadside_assitance/constants.dart';
 
 class CustomTextField extends StatelessWidget {
@@ -8,20 +9,21 @@ class CustomTextField extends StatelessWidget {
         required this.hintText, 
         this.onSaved,
         this.keyboardType,
-        this.validation
+        this.validation,
+        this.controller
 
         });
   final String hintText;
   Function(String?)? onSaved;
   String ? Function(String?)? validation;
-  var emailController = TextEditingController();
+  TextEditingController ? controller ;
   TextInputType ?keyboardType ;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       validator:validation ,
       keyboardType:keyboardType ,
-      controller: emailController,
+      controller: controller,
       onSaved:onSaved ,
       decoration: InputDecoration(
           hintText: hintText,
