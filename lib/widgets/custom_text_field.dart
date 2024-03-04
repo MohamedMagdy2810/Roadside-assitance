@@ -9,8 +9,8 @@ class CustomTextField extends StatelessWidget {
         required this.hintText, 
         this.onSaved,
         this.keyboardType,
-        this.validation,  this.maxlines =1
-
+        this.validation,  this.maxlines =1,
+          this.controller
         });
   final String hintText;
   final int maxlines;
