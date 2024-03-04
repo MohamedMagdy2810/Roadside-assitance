@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:roadside_assitance/views/home_view.dart';
 import 'package:roadside_assitance/constants.dart';
 import 'package:roadside_assitance/views/log_in_page.dart';
+import 'package:roadside_assitance/views/profile_view.dart';
 import 'package:roadside_assitance/widgets/custom_button.dart';
 
 import 'package:roadside_assitance/widgets/custom_password_field.dart';
@@ -11,6 +12,7 @@ final reg_FormKey = GlobalKey<FormState>();
 String? name;
 String? email;
 String? correctPassword;
+var user_email =TextEditingController() ;
 class registerPage extends StatefulWidget {
   registerPage({
     super.key,
@@ -25,6 +27,7 @@ class _registerPageState extends State<registerPage> {
 
 var passwordController_reg = TextEditingController();
 var passwordController_reg_two = TextEditingController();
+
 bool isTrue = true;
 bool isTrue_two = true;
 
@@ -54,6 +57,7 @@ bool isTrue_two = true;
                 height: 64,
               ),
               CustomTextField(
+                controller: name_person,
                 hintText: 'Enter your name',
                 keyboardType: TextInputType.text,
                 validation: (value) {
@@ -64,10 +68,11 @@ bool isTrue_two = true;
                   return null;
                 },
               ),
-               SizedBox(
+              SizedBox(
                 height: 24,
               ),
               CustomTextField(
+                controller:user_email,
                 keyboardType: TextInputType.emailAddress,
                 hintText: 'Enter your Email',
                 validation: (value) {
@@ -92,7 +97,7 @@ bool isTrue_two = true;
                   return null;
                 },
                 suffix:isTrue ? FontAwesomeIcons.solidEyeSlash : FontAwesomeIcons.solidEye,
-                icon_colol:isTrue? lightGreen.withOpacity(.45) :lightGreen.withOpacity(.45),
+                icon_colol:isTrue? lightGreen.withOpacity(.45) :Colors.lightBlue.withOpacity(.45),
                 controller: passwordController_reg,
                 suffixPressed:() {
                   setState(() {
@@ -116,7 +121,7 @@ bool isTrue_two = true;
                 },
                  suffix:isTrue_two ? FontAwesomeIcons.solidEyeSlash : FontAwesomeIcons.solidEye,
                 icon_colol:isTrue_two? lightGreen.withOpacity(.45) :Colors.lightBlue.withOpacity(.45),
-                controller: passwordController_reg_two,
+                controller: passwordController_log,
                 suffixPressed:() {
                   setState(() {
                     isTrue_two=! isTrue_two;
@@ -135,7 +140,9 @@ bool isTrue_two = true;
                   ),
                   GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(context, LogInPage.Id);
+                        Navigator.pop(context);
+                        passwordController_log.clear();
+                        
                       },
                       child: const Text(
                         'Sign in',

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:roadside_assitance/constants.dart';
 import 'package:roadside_assitance/views/home_view.dart';
+import 'package:roadside_assitance/views/profile_view.dart';
 import 'package:roadside_assitance/views/register_page.dart';
 import 'package:roadside_assitance/widgets/custom_button.dart';
 import 'package:roadside_assitance/widgets/custom_password_field.dart';
@@ -49,6 +50,7 @@ class _LogInPageState extends State<LogInPage> {
                       height: 50,
                     ),
                     CustomTextField(
+                      controller: user_email,
                       keyboardType: TextInputType.emailAddress,
                       hintText: 'Enter your Email',
                       validation: (value) {
@@ -92,12 +94,15 @@ class _LogInPageState extends State<LogInPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         const Text(
-                          'Don\'t have an account?',
+                          'Don\'t have an account?  ',
                           style: TextStyle(fontSize: 16),
                         ),
                         GestureDetector(
                           onTap: () {
-                            Navigator.pop(context);
+                            Navigator.of(context).pushNamed(registerPage.Id);
+                            user_email.clear();
+                            passwordController_log.clear();
+                            name_person.clear();
                           },
                           child: const Text(
                             'Sign up',

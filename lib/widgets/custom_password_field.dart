@@ -5,9 +5,7 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:roadside_assitance/constants.dart';
-import 'package:roadside_assitance/views/register_page.dart';
           // FontAwesomeIcons.solidEyeSlash,size: 20,color: lightGreen.withOpacity(.45),
 
 class CustomPasswordField extends StatelessWidget {
