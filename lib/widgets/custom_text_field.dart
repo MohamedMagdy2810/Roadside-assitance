@@ -9,7 +9,7 @@ class CustomTextField extends StatelessWidget {
         required this.hintText, 
         this.onSaved,
         this.keyboardType,
-        this.validation
+        this.validation,  this.maxlines =1
 
         });
   final String hintText;
