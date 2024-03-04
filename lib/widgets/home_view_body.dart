@@ -22,7 +22,7 @@ class homeViewBody extends StatelessWidget {
                 onTap: (){
                   Navigator.pushNamed(context, ServivesView.ID);
                 },
-                child: Container (  child:  const Row(
+                child: Container (  child:   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                     Text(

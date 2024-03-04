@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         registerPage.Id: (context) =>  registerPage(),
         LogInPage.Id: (context) =>const  LogInPage(),
         homeView.Id: (context) =>const  homeView(),
-        ServivesView.ID: (context) =>const  ServivesView(),
+        ServivesView.ID: (context) =>  ServivesView(),
       },
       home: registerPage(),
       
