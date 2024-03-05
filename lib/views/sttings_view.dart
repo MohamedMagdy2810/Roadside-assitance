@@ -15,13 +15,13 @@ class settingsView extends StatelessWidget {
           font_size: 25,
           onTap: (){},
           ),
-        SizedBox(height: 70,),
+      const  SizedBox(height: 70,),
         customButton(
           text: "English",
           font_size: 25,
           onTap: (){},
           ),
-        SizedBox(height: 70,),
+      const  SizedBox(height: 70,),
         customButton(
           text: "Log Out",
           font_size: 25,

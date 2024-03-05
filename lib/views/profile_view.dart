@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:roadside_assitance/constants.dart';
 import 'package:roadside_assitance/views/log_in_page.dart';
@@ -30,10 +29,10 @@ class _profileViewState extends State<profileView> {
         child: Column(
       
           children: [
-            SizedBox(height: 40,),
+           const SizedBox(height: 40,),
             Container(
               alignment:AlignmentDirectional.topStart,
-              child: Text(
+              child:const Text(
                 'Full Name',
                 style: TextStyle(
                   fontSize: 20,
@@ -42,10 +41,10 @@ class _profileViewState extends State<profileView> {
                 ),
               ),
             ),
-            SizedBox(height: 10,),
+          const  SizedBox(height: 10,),
             Container(
               height: 50,
-              decoration: BoxDecoration(
+              decoration:const BoxDecoration(
                 color:  lightWhite,
               ),
               child: CustomTextField(
@@ -54,10 +53,10 @@ class _profileViewState extends State<profileView> {
                 controller: name_person,
                 ),
             ),
-            SizedBox(height: 30,),
+          const  SizedBox(height: 30,),
             Container(
               alignment:AlignmentDirectional.topStart,
-              child: Text(
+              child:const Text(
                 'Email',
                 style: TextStyle(
                   fontSize: 20,
@@ -66,10 +65,10 @@ class _profileViewState extends State<profileView> {
                 ),
               ),
             ),
-            SizedBox(height: 10,),
+          const  SizedBox(height: 10,),
             Container(
               height: 50,
-              decoration: BoxDecoration(
+              decoration:const BoxDecoration(
                 color:  lightWhite,
               ),
               child: CustomTextField(
@@ -78,10 +77,10 @@ class _profileViewState extends State<profileView> {
                 controller: user_email,
                 ),
             ),
-            SizedBox(height: 30,),
+           const SizedBox(height: 30,),
             Container(
               alignment:AlignmentDirectional.topStart,
-              child: Text(
+              child:const Text(
                 'Phone Number',
                 style: TextStyle(
                   fontSize: 20,
@@ -90,10 +89,10 @@ class _profileViewState extends State<profileView> {
                 ),
               ),
             ),
-            SizedBox(height: 10,),
+         const   SizedBox(height: 10,),
             Container(
               height: 50,
-              decoration: BoxDecoration(
+              decoration:const BoxDecoration(
                 color:  lightWhite,
               ),
               child: CustomTextField(
@@ -102,10 +101,10 @@ class _profileViewState extends State<profileView> {
                 controller:phone_num ,
                 ),
             ),
-            SizedBox(height: 30,),
+          const  SizedBox(height: 30,),
             Container(
               alignment:AlignmentDirectional.topStart,
-              child: Text(
+              child:const Text(
                 'Change Password',
                 style: TextStyle(
                   fontSize: 20,
@@ -114,10 +113,10 @@ class _profileViewState extends State<profileView> {
                 ),
               ),
             ),
-            SizedBox(height: 10,),
+          const  SizedBox(height: 10,),
             Container(
               height: 50,
-              decoration: BoxDecoration(
+              decoration:const BoxDecoration(
                 color:  lightWhite,
               ),
               child: CustomPasswordField(
@@ -133,7 +132,7 @@ class _profileViewState extends State<profileView> {
                   }, 
                 ),
             ),
-            SizedBox(height: 50,),
+         const   SizedBox(height: 50,),
             customButton(
               text: "Save",
               font_size: 20,
@@ -141,10 +140,7 @@ class _profileViewState extends State<profileView> {
                 setState(() {
                   
                 });
-                print(name);
-                print(email);
-                print(phone_num.text);
-                print(passwordController_log.text);
+              
               },
               ),
             

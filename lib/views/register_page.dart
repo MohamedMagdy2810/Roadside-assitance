@@ -68,7 +68,7 @@ bool isTrue_two = true;
                   return null;
                 },
               ),
-              SizedBox(
+             const SizedBox(
                 height: 24,
               ),
               CustomTextField(
@@ -171,9 +171,7 @@ bool isTrue_two = true;
                   // logIn(name!, password);
                   if(reg_FormKey.currentState!.validate()){
                     Navigator.of(context).pushNamed(homeView.Id);
-                    print(name);
-                    print(correctPassword);
-                    print(email);
+                 
                   }
                   
                 },

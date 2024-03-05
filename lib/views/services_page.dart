@@ -65,11 +65,11 @@ class ServivesView extends StatelessWidget {
         showModalBottomSheet(
           isScrollControlled: true,
           context: context, builder: (context){
-          return bottoSheet();
+          return const bottomSheet();
         });
       },
       backgroundColor: KprimaryColor,
-      child: Icon(Icons.add,size: 32,),),
+      child:const Icon(Icons.add,size: 32,),),
     );
   }
 }
