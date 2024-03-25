@@ -4,7 +4,6 @@ import 'package:roadside_assitance/constants.dart';
 import 'package:roadside_assitance/widgets/home_view_body.dart';
 import 'package:roadside_assitance/views/profile_view.dart';
 import 'package:roadside_assitance/views/sttings_view.dart';
-import 'package:roadside_assitance/widgets/custom_service_card.dart';
 
 class homeView extends StatefulWidget {
   const homeView({super.key});
