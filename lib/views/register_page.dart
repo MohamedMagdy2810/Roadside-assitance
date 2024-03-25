@@ -9,7 +9,8 @@ import 'package:roadside_assitance/widgets/custom_button.dart';
 import 'package:roadside_assitance/widgets/custom_password_field.dart';
 import 'package:roadside_assitance/widgets/custom_text_field.dart';
 final reg_FormKey = GlobalKey<FormState>();  
-String? name;
+String? frist_name;
+String? last_name;
 String? email;
 String? correctPassword;
 var user_email =TextEditingController() ;
@@ -56,18 +57,41 @@ bool isTrue_two = true;
               const SizedBox(
                 height: 64,
               ),
-              CustomTextField(
-                controller: name_person,
-                hintText: 'Enter your name',
-                keyboardType: TextInputType.text,
-                validation: (value) {
-                  name = value.toString();
-                  if (value == null || value.isEmpty) {
-                    return "please enter your Name";
-                  }
-                  return null;
-                },
+              Row(
+                children: [
+                  Expanded(
+                    child: CustomTextField(
+                      controller: f_name_person,
+                      hintText: 'First Name',
+                      keyboardType: TextInputType.text,
+                      validation: (value) {
+                        frist_name = value.toString();
+                        if (value == null || value.isEmpty) {
+                          return "Enter your first Name";
+                        }
+                        return null;
+                      },
+                    ),
+                  ),
+                  SizedBox(width: 15,),
+                  Expanded(
+                    child: CustomTextField(
+                      controller: l_name_person,
+                      hintText: 'Last Name',
+                      keyboardType: TextInputType.text,
+                      validation: (value) {
+                        frist_name = value.toString();
+                        if (value == null || value.isEmpty) {
+                          return "Enter your Last Name";
+                        }
+                        return null;
+                      },
+                    ),
+                  ),
+                
+                ],
               ),
+              
               SizedBox(
                 height: 24,
               ),
@@ -171,7 +195,7 @@ bool isTrue_two = true;
                   // logIn(name!, password);
                   if(reg_FormKey.currentState!.validate()){
                     Navigator.of(context).pushNamed(homeView.Id);
-                    print(name);
+                    print(frist_name);
                     print(correctPassword);
                     print(email);
                   }

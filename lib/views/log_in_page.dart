@@ -102,7 +102,8 @@ class _LogInPageState extends State<LogInPage> {
                             Navigator.of(context).pushNamed(registerPage.Id);
                             user_email.clear();
                             passwordController_log.clear();
-                            name_person.clear();
+                            l_name_person.clear();
+                            f_name_person.clear();
                           },
                           child: const Text(
                             'Sign up',

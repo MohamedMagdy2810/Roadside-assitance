@@ -4,7 +4,6 @@ import 'package:roadside_assitance/views/home_view.dart';
 import 'package:roadside_assitance/views/log_in_page.dart';
 import 'package:roadside_assitance/views/register_page.dart';
 import 'package:roadside_assitance/views/services_page.dart';
-import 'package:roadside_assitance/views/sttings_view.dart';
 
 void main() {
   runApp(const MyApp());

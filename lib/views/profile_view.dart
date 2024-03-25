@@ -1,4 +1,7 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:roadside_assitance/constants.dart';
@@ -10,8 +13,11 @@ import 'package:roadside_assitance/widgets/custom_text_field.dart';
 
   // ---------------------------------------------------------
 
-  var name_person = TextEditingController();
+  var f_name_person = TextEditingController();
+  var l_name_person = TextEditingController();
+  var yyy = "${f_name_person.text} ${l_name_person.text}";
   var phone_num = TextEditingController();
+ 
 
 
   // ---------------------------------------
@@ -22,6 +28,7 @@ class profileView extends StatefulWidget {
 }
 
 class _profileViewState extends State<profileView> {
+  final List<TextEditingController>ccc = [f_name_person , l_name_person];
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -51,7 +58,7 @@ class _profileViewState extends State<profileView> {
               child: CustomTextField(
                 hintText: "Enter Your Name" ,
                 keyboardType: TextInputType.emailAddress,
-                controller: name_person,
+                controller: f_name_person ,
                 ),
             ),
             SizedBox(height: 30,),
@@ -141,10 +148,11 @@ class _profileViewState extends State<profileView> {
                 setState(() {
                   
                 });
-                print(name);
+                print(frist_name);
                 print(email);
                 print(phone_num.text);
                 print(passwordController_log.text);
+                print(yyy);
               },
               ),
             
