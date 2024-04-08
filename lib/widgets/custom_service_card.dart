@@ -18,7 +18,7 @@ final serviceModel service_model;
                    blurRadius: 2,
                   spreadRadius: 2,
                   color: lightGreen.withOpacity(.3),
-                  offset: Offset(0, 5))
+                  offset:const Offset(0, 5))
               ],
           borderRadius: BorderRadius.circular(16),
           color: Colors.white),
@@ -27,8 +27,8 @@ final serviceModel service_model;
             children: [
              const  SizedBox(height: 8,),
               Image.asset(service_model.image,height: 75,width: 75,),
-              SizedBox(height: 8,),
-               Text(service_model.name,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),)
+             const SizedBox(height: 8,),
+               Text(service_model.name,style:const TextStyle(fontWeight: FontWeight.bold,fontSize: 18),)
             ],
           ),
       ),

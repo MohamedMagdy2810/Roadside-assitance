@@ -79,7 +79,7 @@ class _LogInPageState extends State<LogInPage> {
                           : FontAwesomeIcons.solidEye,
                       icon_colol: isTrue
                           ? lightGreen.withOpacity(.45)
-                          : Colors.lightBlue.withOpacity(.45),
+                          : lightGreen.withOpacity(.45),
                       controller: passwordController_log,
                       suffixPressed: () {
                         setState(() {

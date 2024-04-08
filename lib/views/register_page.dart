@@ -57,41 +57,18 @@ bool isTrue_two = true;
               const SizedBox(
                 height: 64,
               ),
-              Row(
-                children: [
-                  Expanded(
-                    child: CustomTextField(
-                      controller: f_name_person,
-                      hintText: 'First Name',
-                      keyboardType: TextInputType.text,
-                      validation: (value) {
-                        frist_name = value.toString();
-                        if (value == null || value.isEmpty) {
-                          return "Enter your first Name";
-                        }
-                        return null;
-                      },
-                    ),
-                  ),
-                  SizedBox(width: 15,),
-                  Expanded(
-                    child: CustomTextField(
-                      controller: l_name_person,
-                      hintText: 'Last Name',
-                      keyboardType: TextInputType.text,
-                      validation: (value) {
-                        frist_name = value.toString();
-                        if (value == null || value.isEmpty) {
-                          return "Enter your Last Name";
-                        }
-                        return null;
-                      },
-                    ),
-                  ),
-                
-                ],
+              CustomTextField(
+                controller: name_person,
+                hintText: 'Enter your name',
+                keyboardType: TextInputType.text,
+                validation: (value) {
+                  name = value.toString();
+                  if (value == null || value.isEmpty) {
+                    return "please enter your Name";
+                  }
+                  return null;
+                },
               ),
-              
               SizedBox(
                 height: 24,
               ),
@@ -121,7 +98,7 @@ bool isTrue_two = true;
                   return null;
                 },
                 suffix:isTrue ? FontAwesomeIcons.solidEyeSlash : FontAwesomeIcons.solidEye,
-                icon_colol:isTrue? lightGreen.withOpacity(.45) :Colors.lightBlue.withOpacity(.45),
+                icon_colol:isTrue? lightGreen.withOpacity(.45) :lightGreen.withOpacity(.45),
                 controller: passwordController_reg,
                 suffixPressed:() {
                   setState(() {
@@ -144,7 +121,7 @@ bool isTrue_two = true;
                   return null;
                 },
                  suffix:isTrue_two ? FontAwesomeIcons.solidEyeSlash : FontAwesomeIcons.solidEye,
-                icon_colol:isTrue_two? lightGreen.withOpacity(.45) :Colors.lightBlue.withOpacity(.45),
+                icon_colol:isTrue_two? lightGreen.withOpacity(.45) :lightGreen.withOpacity(.45),
                 controller: passwordController_log,
                 suffixPressed:() {
                   setState(() {
@@ -195,7 +172,7 @@ bool isTrue_two = true;
                   // logIn(name!, password);
                   if(reg_FormKey.currentState!.validate()){
                     Navigator.of(context).pushNamed(homeView.Id);
-                    print(frist_name);
+                    print(name);
                     print(correctPassword);
                     print(email);
                   }

@@ -22,7 +22,13 @@ class homeViewBody extends StatelessWidget {
                 onTap: (){
                   Navigator.pushNamed(context, ServivesView.ID);
                 },
-                child: Container (  child:   Row(
+                child: Container (  height: 60,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: const Color(0xff275217)),  child:
+                
+                 const  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                     Text(
@@ -32,11 +38,6 @@ class homeViewBody extends StatelessWidget {
                       Icon(FontAwesomeIcons.screwdriverWrench)
                     ],
                   ),
-                  height: 60,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      color: const Color(0xff275217)),
                 ),
               )),
 
