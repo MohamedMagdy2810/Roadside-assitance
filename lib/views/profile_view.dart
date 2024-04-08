@@ -1,11 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-=======
->>>>>>> 4e503543fab8a8ccb6067cbeaa88d8521f8e07ad
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:roadside_assitance/constants.dart';
 import 'package:roadside_assitance/views/log_in_page.dart';
@@ -151,16 +147,13 @@ class _profileViewState extends State<profileView> {
                 setState(() {
                   
                 });
-<<<<<<< HEAD
                 print(frist_name);
                 print(email);
                 print(phone_num.text);
                 print(passwordController_log.text);
-                print(yyy);
-=======
+                print("The name is :  $yyy");
               
->>>>>>> 4e503543fab8a8ccb6067cbeaa88d8521f8e07ad
-              },
+                            },
               ),
             
           ],

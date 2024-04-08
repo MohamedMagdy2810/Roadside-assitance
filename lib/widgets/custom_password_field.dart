@@ -49,6 +49,8 @@ class CustomPasswordField extends StatelessWidget {
       ),
           hintText: hintText,
           hintStyle:  TextStyle(color:lightGreen.withOpacity(.45),fontSize: 15),
+          // labelText: hintText,
+          // labelStyle:TextStyle(color:lightGreen.withOpacity(.45),fontSize: 15) ,
           
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),

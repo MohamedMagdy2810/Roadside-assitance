@@ -26,8 +26,12 @@ class CustomTextField extends StatelessWidget {
       keyboardType:keyboardType ,
       controller: controller,
       onSaved:onSaved ,
+      
       decoration: InputDecoration(
           hintText: hintText,
+          // labelStyle: TextStyle(color:const Color(0xff2B5F1D).withOpacity(.45),fontSize: 15),
+          // labelText: "${hintText}",
+
           hintStyle:  TextStyle(color:const Color(0xff2B5F1D).withOpacity(.45),fontSize: 15),
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),

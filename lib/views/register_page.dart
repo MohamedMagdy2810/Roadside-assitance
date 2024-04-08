@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:roadside_assitance/views/home_view.dart';
 import 'package:roadside_assitance/constants.dart';
@@ -57,17 +59,39 @@ bool isTrue_two = true;
               const SizedBox(
                 height: 64,
               ),
-              CustomTextField(
-                controller: name_person,
-                hintText: 'Enter your name',
-                keyboardType: TextInputType.text,
-                validation: (value) {
-                  name = value.toString();
-                  if (value == null || value.isEmpty) {
-                    return "please enter your Name";
-                  }
-                  return null;
-                },
+              Row(
+                children: [
+                  Expanded(
+                    child: CustomTextField(
+                      controller: f_name_person,
+                      hintText: 'First Name',
+                      keyboardType: TextInputType.text,
+                      validation: (value) {
+                        frist_name = value.toString();
+                        if (value == null || value.isEmpty) {
+                          return "Enter Your First Name";
+                        }
+                        return null;
+                      },
+                    ),
+                  ),
+                  SizedBox(width: 20,),
+                  Expanded(
+                    child: CustomTextField(
+                                    controller: l_name_person,
+                                    hintText: 'Last Name',
+                                    keyboardType: TextInputType.text,
+                                    validation: (value) {
+                    last_name = value.toString();
+                    if (value == null || value.isEmpty) {
+                      return "Enter Your Last Name";
+                    }
+                    return null;
+                                    },
+                                  ),
+                  ),
+              
+                ],
               ),
               SizedBox(
                 height: 24,
@@ -76,6 +100,7 @@ bool isTrue_two = true;
                 controller:user_email,
                 keyboardType: TextInputType.emailAddress,
                 hintText: 'Enter your Email',
+                
                 validation: (value) {
                   email = value.toString();
                   if (value == null || value.isEmpty) {
@@ -98,7 +123,7 @@ bool isTrue_two = true;
                   return null;
                 },
                 suffix:isTrue ? FontAwesomeIcons.solidEyeSlash : FontAwesomeIcons.solidEye,
-                icon_colol:isTrue? lightGreen.withOpacity(.45) :lightGreen.withOpacity(.45),
+                icon_colol:isTrue? lightGreen.withOpacity(.45) :Colors.blue.withOpacity(.45),
                 controller: passwordController_reg,
                 suffixPressed:() {
                   setState(() {
@@ -121,7 +146,7 @@ bool isTrue_two = true;
                   return null;
                 },
                  suffix:isTrue_two ? FontAwesomeIcons.solidEyeSlash : FontAwesomeIcons.solidEye,
-                icon_colol:isTrue_two? lightGreen.withOpacity(.45) :lightGreen.withOpacity(.45),
+                icon_colol:isTrue_two? lightGreen.withOpacity(.45) :Colors.blue.withOpacity(.45),
                 controller: passwordController_log,
                 suffixPressed:() {
                   setState(() {
@@ -172,14 +197,15 @@ bool isTrue_two = true;
                   // logIn(name!, password);
                   if(reg_FormKey.currentState!.validate()){
                     Navigator.of(context).pushNamed(homeView.Id);
-                    print(name);
+                    print(frist_name);
                     print(correctPassword);
                     print(email);
                   }
                   
                 },
               )
-            ]),
+            ],
+            ),
           ),
         ),
       ),

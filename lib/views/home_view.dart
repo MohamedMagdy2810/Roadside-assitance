@@ -38,7 +38,7 @@ class _homeViewState extends State<homeView> {
           const SizedBox(
             width: 8,
            ),
-           Text('Hi $name',style:const TextStyle(
+           Text('Hi $frist_name',style:const TextStyle(
             fontWeight: FontWeight.bold
            ),)
             
