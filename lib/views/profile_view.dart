@@ -64,6 +64,30 @@ class _profileViewState extends State<profileView> {
             Container(
               alignment:AlignmentDirectional.topStart,
               child:const Text(
+                'Username',
+                style: TextStyle(
+                  fontSize: 20,
+                  // fontWeight: FontWeight.bold
+                  
+                ),
+              ),
+            ),
+          const  SizedBox(height: 10,),
+            Container(
+              height: 50,
+              decoration:const BoxDecoration(
+                color:  lightWhite,
+              ),
+              child: CustomTextField(
+                hintText: "Enter Your Username" ,
+                keyboardType: TextInputType.emailAddress,
+                controller: username,
+                ),
+            ),
+           const  SizedBox(height: 30,),
+            Container(
+              alignment:AlignmentDirectional.topStart,
+              child:const Text(
                 'Email',
                 style: TextStyle(
                   fontSize: 20,
@@ -84,6 +108,7 @@ class _profileViewState extends State<profileView> {
                 controller: user_email,
                 ),
             ),
+
            const SizedBox(height: 30,),
             Container(
               alignment:AlignmentDirectional.topStart,

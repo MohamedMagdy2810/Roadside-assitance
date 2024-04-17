@@ -14,8 +14,10 @@ final reg_FormKey = GlobalKey<FormState>();
 String? frist_name;
 String? last_name;
 String? email;
+String? user_Name;
 String? correctPassword;
 var user_email =TextEditingController() ;
+var username =TextEditingController() ;
 class registerPage extends StatefulWidget {
   registerPage({
     super.key,
@@ -92,6 +94,22 @@ bool isTrue_two = true;
                   ),
               
                 ],
+              ),
+              SizedBox(
+                height: 24,
+              ),
+              CustomTextField(
+                controller:username,
+                keyboardType: TextInputType.emailAddress,
+                hintText: 'Enter your Username',
+                
+                validation: (value) {
+                  user_Name = value.toString();
+                  if (value == null || value.isEmpty) {
+                    return "Please Enter Your Username";
+                  }
+                  return null;
+                },
               ),
               SizedBox(
                 height: 24,

@@ -52,11 +52,11 @@ class _LogInPageState extends State<LogInPage> {
                     CustomTextField(
                       controller: user_email,
                       keyboardType: TextInputType.emailAddress,
-                      hintText: 'Enter your Email',
+                      hintText: 'Enter your Email or Username',
                       validation: (value) {
                         email = value.toString();
                         if (value == null || value.isEmpty) {
-                          return "Please Enter Your Email";
+                          return "Please Enter Your Email or Username";
                         }
                         return null;
                       },
