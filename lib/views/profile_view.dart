@@ -172,11 +172,7 @@ class _profileViewState extends State<profileView> {
                 setState(() {
                   
                 });
-                print(frist_name);
-                print(email);
-                print(phone_num.text);
-                print(passwordController_log.text);
-                print("The name is :  $yyy");
+              
               
                             },
               ),

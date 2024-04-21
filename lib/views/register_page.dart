@@ -10,14 +10,11 @@ import 'package:roadside_assitance/widgets/custom_button.dart';
 
 import 'package:roadside_assitance/widgets/custom_password_field.dart';
 import 'package:roadside_assitance/widgets/custom_text_field.dart';
-final reg_FormKey = GlobalKey<FormState>();  
-String? frist_name;
-String? last_name;
-String? email;
-String? user_Name;
-String? correctPassword;
+
 var user_email =TextEditingController() ;
 var username =TextEditingController() ;
+String? correctPassword;
+String? frist_name;
 class registerPage extends StatefulWidget {
   registerPage({
     super.key,
@@ -35,6 +32,12 @@ var passwordController_reg_two = TextEditingController();
 
 bool isTrue = true;
 bool isTrue_two = true;
+final reg_FormKey = GlobalKey<FormState>();  
+
+String? last_name;
+String? email;
+String? user_Name;
+
 
 
   @override
@@ -48,7 +51,7 @@ bool isTrue_two = true;
         key: reg_FormKey,
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.only(left: 28,right: 28,top: 80),
+            padding: const EdgeInsets.only(left: 28,right: 28,top: 60),
             child: Column(
               children: [
               const Text(
@@ -59,7 +62,7 @@ bool isTrue_two = true;
                     fontWeight: FontWeight.bold),
               ),
               const SizedBox(
-                height: 64,
+                height: 50,
               ),
               Row(
                 children: [
@@ -96,7 +99,7 @@ bool isTrue_two = true;
                 ],
               ),
               SizedBox(
-                height: 24,
+                height: 20,
               ),
               CustomTextField(
                 controller:username,
@@ -112,7 +115,7 @@ bool isTrue_two = true;
                 },
               ),
               SizedBox(
-                height: 24,
+                height: 20,
               ),
               CustomTextField(
                 controller:user_email,
@@ -128,7 +131,7 @@ bool isTrue_two = true;
                 },
               ),
               const SizedBox(
-                height: 24,
+                height: 20,
               ),
               CustomPasswordField(
                 isPassword: isTrue,
@@ -150,7 +153,7 @@ bool isTrue_two = true;
                 }, 
               ),
               const SizedBox(
-                height: 24,
+                height: 20,
               ),
               CustomPasswordField(
                 isPassword: isTrue_two,
@@ -215,9 +218,7 @@ bool isTrue_two = true;
                   // logIn(name!, password);
                   if(reg_FormKey.currentState!.validate()){
                     Navigator.of(context).pushNamed(homeView.Id);
-                    print(frist_name);
-                    print(correctPassword);
-                    print(email);
+                 
                   }
                   
                 },

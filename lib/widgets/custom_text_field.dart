@@ -7,14 +7,14 @@ class CustomTextField extends StatelessWidget {
       {
         super.key, 
         required this.hintText, 
-        this.onSaved,
+        this.onChanged,
         this.keyboardType,
         this.validation,  this.maxlines =1,
           this.controller
         });
   final String hintText;
   final int maxlines;
-  Function(String?)? onSaved;
+  Function(String?)? onChanged;
   String ? Function(String?)? validation;
   TextEditingController ? controller ;
   TextInputType ?keyboardType ;
@@ -25,7 +25,7 @@ class CustomTextField extends StatelessWidget {
       validator:validation ,
       keyboardType:keyboardType ,
       controller: controller,
-      onSaved:onSaved ,
+      onChanged:onChanged ,
       
       decoration: InputDecoration(
           hintText: hintText,

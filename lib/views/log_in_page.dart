@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:roadside_assitance/constants.dart';
+import 'package:roadside_assitance/services/Api.dart';
 import 'package:roadside_assitance/views/home_view.dart';
 import 'package:roadside_assitance/views/profile_view.dart';
 import 'package:roadside_assitance/views/register_page.dart';
@@ -18,7 +19,7 @@ class LogInPage extends StatefulWidget {
   @override
   State<LogInPage> createState() => _LogInPageState();
 }
-
+late String email,password ;
 bool isTrue = true;
 var passwordController_log = TextEditingController();
 
@@ -50,11 +51,14 @@ class _LogInPageState extends State<LogInPage> {
                       height: 50,
                     ),
                     CustomTextField(
+                      onChanged: (data){
+                        email =data!;
+                      },
                       controller: user_email,
                       keyboardType: TextInputType.emailAddress,
                       hintText: 'Enter your Email or Username',
                       validation: (value) {
-                        email = value.toString();
+                        // email = value.toString();
                         if (value == null || value.isEmpty) {
                           return "Please Enter Your Email or Username";
                         }
@@ -65,9 +69,13 @@ class _LogInPageState extends State<LogInPage> {
                       height: 16,
                     ),
                     CustomPasswordField(
+                      onChanged: (data){
+                        password = data! ;
+                      },
                       isPassword: isTrue,
                       hintText: 'Password',
                       validation: (value) {
+                       
                         correctPassword = value;
                         if (value == null || value.isEmpty) {
                           return "please enter your Password";
@@ -123,9 +131,7 @@ class _LogInPageState extends State<LogInPage> {
                     customButton(
                       text: 'Continue',
                       onTap: () {
-                        if (log_FormKey.currentState!.validate()) {
-                          Navigator.of(context).pushNamed(homeView.Id);
-                        }
+                      auth().logIn(email, password);
                       },
                     )
                   ]),

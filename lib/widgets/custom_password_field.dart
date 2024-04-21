@@ -13,7 +13,7 @@ class CustomPasswordField extends StatelessWidget {
       {
         super.key, 
         required this.hintText, 
-        this.onSaved, 
+        this.onChanged, 
         this.validation,
         this.suffixPressed,
         this.suffix,
@@ -22,7 +22,7 @@ class CustomPasswordField extends StatelessWidget {
         required this.isPassword,
         });
   final String hintText;
-  Function(String?)? onSaved;
+  Function(String?)? onChanged;
   Function()? suffixPressed;
   IconData ? suffix ;
   Color ? icon_colol ;
@@ -36,7 +36,7 @@ class CustomPasswordField extends StatelessWidget {
     return TextFormField(
       obscureText:isPassword,
       validator: validation,
-      onSaved: onSaved,
+      onChanged: onChanged,
       controller: controller,
       decoration: InputDecoration(
         suffixIcon:IconButton(
