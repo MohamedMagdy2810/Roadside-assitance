@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:roadside_assitance/services/Api.dart';
 import 'package:roadside_assitance/views/home_view.dart';
 import 'package:roadside_assitance/constants.dart';
 import 'package:roadside_assitance/views/log_in_page.dart';
@@ -37,6 +38,7 @@ final reg_FormKey = GlobalKey<FormState>();
 String? last_name;
 String? email;
 String? user_Name;
+String? Password ,Password2 ;
 
 
 
@@ -68,6 +70,9 @@ String? user_Name;
                 children: [
                   Expanded(
                     child: CustomTextField(
+                      onChanged: (data){
+                        frist_name =data ;
+                      },
                       controller: f_name_person,
                       hintText: 'First Name',
                       keyboardType: TextInputType.text,
@@ -83,6 +88,9 @@ String? user_Name;
                   SizedBox(width: 20,),
                   Expanded(
                     child: CustomTextField(
+                      onChanged: (data){
+                        last_name =data;
+                      },
                                     controller: l_name_person,
                                     hintText: 'Last Name',
                                     keyboardType: TextInputType.text,
@@ -102,6 +110,9 @@ String? user_Name;
                 height: 20,
               ),
               CustomTextField(
+                onChanged: (data){
+                  user_Name =data;
+                },
                 controller:username,
                 keyboardType: TextInputType.emailAddress,
                 hintText: 'Enter your Username',
@@ -118,6 +129,9 @@ String? user_Name;
                 height: 20,
               ),
               CustomTextField(
+                onChanged: (data){
+                  email =data;
+                },
                 controller:user_email,
                 keyboardType: TextInputType.emailAddress,
                 hintText: 'Enter your Email',
@@ -134,6 +148,9 @@ String? user_Name;
                 height: 20,
               ),
               CustomPasswordField(
+                onChanged: (data){
+                  Password =data;
+                },
                 isPassword: isTrue,
                 hintText: 'Password',
                 validation: (value) {
@@ -156,6 +173,9 @@ String? user_Name;
                 height: 20,
               ),
               CustomPasswordField(
+                onChanged: (data){
+                  Password2 =data;
+                },
                 isPassword: isTrue_two,
                 hintText: 'Retype Password',
                 validation: (value) {
@@ -215,11 +235,12 @@ String? user_Name;
               customButton(
                 text: 'Continue',
                 onTap: () {
-                  // logIn(name!, password);
-                  if(reg_FormKey.currentState!.validate()){
-                    Navigator.of(context).pushNamed(homeView.Id);
+                  // // logIn(name!, password);
+                  // if(reg_FormKey.currentState!.validate()){
+                  //   Navigator.of(context).pushNamed(homeView.Id);
                  
-                  }
+                  // }
+                  auth().signUp(context ,email!, Password, Password2, user_Name, frist_name, last_name);
                   
                 },
               )

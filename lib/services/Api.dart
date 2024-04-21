@@ -20,13 +20,13 @@ class auth {
   }
 
   void navigateIfSuccessful(BuildContext context, int statusCode) {
-    if (statusCode == 200) {
+    if (statusCode == 200 ||statusCode==201 ) {
       Navigator.of(context).pushNamed(homeView.Id);
     }
-    else{showSnackbar(context, 'Invalid email Or password');}
+    else{showSnackbar(context, 'Invalid try again ');}
   }
 
-  Future<dynamic> signUp(
+  Future<dynamic> signUp(BuildContext context ,
       String email, password, password2, username, firstName, lastName) async {
     http.Response response = await http.post(
         Uri.parse(
@@ -40,6 +40,8 @@ class auth {
           'password': password,
           'password2': password2,
         });
+          navigateIfSuccessful(context, response.statusCode);
     print(' status code is ===> ${response.statusCode}');
+    print(response.body);
   }
 }
