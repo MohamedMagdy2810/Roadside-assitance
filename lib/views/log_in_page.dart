@@ -132,8 +132,12 @@ class _LogInPageState extends State<LogInPage> {
                     customButton(
                       text: 'Continue',
                       onTap: () {
-                        auth().logIn(context, email, password);
-                        // Navigator.of(context).pushNamed(homeView.Id);
+                          if (log_FormKey.currentState!.validate()) {
+                               auth().logIn(context, email, password);
+                          // Navigator.of(context).pushNamed(homeView.Id);
+                        }
+                     
+                       
                       },
                     )
                   ]),

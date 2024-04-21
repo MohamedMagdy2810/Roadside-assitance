@@ -236,11 +236,10 @@ String? Password ,Password2 ;
                 text: 'Continue',
                 onTap: () {
                   // // logIn(name!, password);
-                  // if(reg_FormKey.currentState!.validate()){
-                  //   Navigator.of(context).pushNamed(homeView.Id);
+                  if(reg_FormKey.currentState!.validate()){
+                       auth().signUp(context ,email!, Password, Password2, user_Name, frist_name, last_name);
                  
-                  // }
-                  auth().signUp(context ,email!, Password, Password2, user_Name, frist_name, last_name);
+                  }
                   
                 },
               )
