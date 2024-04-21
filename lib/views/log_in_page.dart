@@ -8,7 +8,8 @@ import 'package:roadside_assitance/views/register_page.dart';
 import 'package:roadside_assitance/widgets/custom_button.dart';
 import 'package:roadside_assitance/widgets/custom_password_field.dart';
 import 'package:roadside_assitance/widgets/custom_text_field.dart';
-final log_FormKey = GlobalKey<FormState>();  
+
+final log_FormKey = GlobalKey<FormState>();
 
 class LogInPage extends StatefulWidget {
   static String Id = 'logInPage';
@@ -19,7 +20,8 @@ class LogInPage extends StatefulWidget {
   @override
   State<LogInPage> createState() => _LogInPageState();
 }
-late String email,password ;
+
+late String email, password;
 bool isTrue = true;
 var passwordController_log = TextEditingController();
 
@@ -51,8 +53,8 @@ class _LogInPageState extends State<LogInPage> {
                       height: 50,
                     ),
                     CustomTextField(
-                      onChanged: (data){
-                        email =data!;
+                      onChanged: (data) {
+                        email = data!;
                       },
                       controller: user_email,
                       keyboardType: TextInputType.emailAddress,
@@ -69,13 +71,12 @@ class _LogInPageState extends State<LogInPage> {
                       height: 16,
                     ),
                     CustomPasswordField(
-                      onChanged: (data){
-                        password = data! ;
+                      onChanged: (data) {
+                        password = data!;
                       },
                       isPassword: isTrue,
                       hintText: 'Password',
                       validation: (value) {
-                       
                         correctPassword = value;
                         if (value == null || value.isEmpty) {
                           return "please enter your Password";
@@ -131,7 +132,8 @@ class _LogInPageState extends State<LogInPage> {
                     customButton(
                       text: 'Continue',
                       onTap: () {
-                      auth().logIn(email, password);
+                        auth().logIn(context, email, password);
+                        // Navigator.of(context).pushNamed(homeView.Id);
                       },
                     )
                   ]),
