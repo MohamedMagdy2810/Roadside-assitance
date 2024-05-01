@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:flutter/material.dart';
-import 'package:roadside_assitance/models/response_model.dart';
+import 'package:roadside_assitance/models/api_response_model.dart';
 
 import 'package:roadside_assitance/views/home_view.dart';
 import 'package:http/http.dart' as http;
@@ -21,7 +21,7 @@ class auth {
          if (response.statusCode == 200) {
     // Parse the JSON response
     Map<String, dynamic> jsonResponse = json.decode(response.body);
-    response_model responseModel = response_model.fromJson(jsonResponse);
+    api_response_model responseModel = api_response_model.fromJson(jsonResponse);
 
     // Save the token
     await TokenManager.saveToken(responseModel.token);

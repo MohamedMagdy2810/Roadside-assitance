@@ -1,4 +1,9 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="url_launcher: ^6.2.6">
+
+    <!-- Add INTERNET permission -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:label="roadside_assitance"
         android:name="${applicationName}"

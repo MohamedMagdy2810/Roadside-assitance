@@ -22,7 +22,7 @@ class _homeViewState extends State<homeView> {
     return Scaffold(
       appBar: AppBar(
        flexibleSpace: Padding(
-         padding: const EdgeInsets.only(top: 28,bottom: 20,left: 250,right: 16),
+         padding: const EdgeInsets.only(top: 36,bottom: 20,left: 250,right: 16),
          child: Container(
           width: 50,
           height: 32,
