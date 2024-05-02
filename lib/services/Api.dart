@@ -21,7 +21,7 @@ class auth {
          if (response.statusCode == 200) {
     // Parse the JSON response
     Map<String, dynamic> jsonResponse = json.decode(response.body);
-    api_response_model responseModel = api_response_model.fromJson(jsonResponse);
+    api_response_model_login responseModel = api_response_model_login.fromJson(jsonResponse);
 
     // Save the token
     await TokenManager.saveToken(responseModel.token);
@@ -58,7 +58,18 @@ class auth {
           'password': password,
           'password2': password2,
         });
+         if (response.statusCode == 201) {
+    // Parse the JSON response
+    Map<String, dynamic> jsonResponse = json.decode(response.body);
+    api_response_model_signUp responseModel = api_response_model_signUp.fromJson(jsonResponse);
+
+    // Save the token
+    await TokenManager.saveToken(responseModel.token);
+
+    // Continue with your navigation or other logic
     navigateIfSuccessful(context, response.statusCode);
+  }
+   
     print(' status code is ===> ${response.statusCode}');
     print(response.body);
   }
