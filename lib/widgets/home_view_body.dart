@@ -45,7 +45,7 @@ class homeViewBody extends StatelessWidget {
          const Padding(
             padding:  EdgeInsets.only(left:16.0),
             child: Text(
-              'Current requests',
+              ' Service providers:',
               style: TextStyle(
                   color: lightGreen,
                   fontSize: 22,
