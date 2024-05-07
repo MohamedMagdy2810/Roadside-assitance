@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:roadside_assitance/services/Api.dart';
+import 'package:roadside_assitance/views/first_screen.dart';
 import 'package:roadside_assitance/views/home_view.dart';
 import 'package:roadside_assitance/views/log_in_page.dart';
 // import 'package:roadside_assitance/services/token_manager.dart'; // Import your TokenManager class
@@ -30,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
       Navigator.of(context).pushReplacementNamed(homeView.Id);
     } else {
       // Navigate to login screen if token doesn't exist
-      Navigator.of(context).pushReplacementNamed(LogInPage.Id);
+      Navigator.of(context).pushReplacementNamed(first_screen.ID);
     }
   }
 

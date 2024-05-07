@@ -1,4 +1,6 @@
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+// import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:roadside_assitance/models/_model.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -21,7 +23,9 @@ class customRequestWidget extends StatelessWidget {
           padding: const EdgeInsets.only(top: 12.0),
           child: Column(
             children: [
-              SizedBox(height: 8,),
+              const SizedBox(
+                height: 8,
+              ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -56,7 +60,9 @@ class customRequestWidget extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 16,),
+              const SizedBox(
+                height: 16,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -67,7 +73,7 @@ class customRequestWidget extends StatelessWidget {
                         // border: Border.all(color: Colors.black.withOpacity(.2)),
                         borderRadius: BorderRadius.circular(10),
                         color: Colors.white),
-                    child:const Row(
+                    child: const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
@@ -75,7 +81,9 @@ class customRequestWidget extends StatelessWidget {
                           color: Colors.blue,
                           size: 18,
                         ),
-                        SizedBox(width: 8,),
+                        SizedBox(
+                          width: 8,
+                        ),
                         Text(
                           'location',
                           style: TextStyle(color: Colors.blue),
@@ -83,53 +91,66 @@ class customRequestWidget extends StatelessWidget {
                       ],
                     ),
                   ),
-                   Container(
-                    width: 60,
-                    height: 34,
-                    decoration: BoxDecoration(
-                        // border: Border.all(color: Colors.black.withOpacity(.2)),
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.white),
-                    child:const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          FontAwesomeIcons.phone,
-                          color: Colors.blue,
-                          size: 18,
-                        ),
-                        SizedBox(width: 8,),
-                        Text(
-                          'Call',
-                          style: TextStyle(color:Colors.blue),
-                        )
-                      ],
+                  GestureDetector(
+                    onTap: () {
+                      _makePhoneCall();
+                    },
+                    child: Container(
+                      width: 60,
+                      height: 34,
+                      decoration: BoxDecoration(
+                          // border: Border.all(color: Colors.black.withOpacity(.2)),
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white),
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            FontAwesomeIcons.phone,
+                            color: Colors.blue,
+                            size: 18,
+                          ),
+                          SizedBox(
+                            width: 8,
+                          ),
+                          Text(
+                            'Call',
+                            style: TextStyle(color: Colors.blue),
+                          )
+                        ],
+                      ),
                     ),
                   ),
-              Container(
-                    width: 90,
-                    height: 34,
-                    decoration: BoxDecoration(
-                        // border: Border.all(color: Colors.black.withOpacity(.2)),
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.white),
-                    child:const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          FontAwesomeIcons.whatsapp,
-                          color: Colors.green,
-                          size: 18,
-                        ),
-                        SizedBox(width: 8,),
-                        Text(
-                          'Whatsapp',
-                          style: TextStyle(color: Colors.blue),
-                        )
-                      ],
+                  GestureDetector(
+                    onTap: () {
+                      _launchWhatsApp();
+                    },
+                    child: Container(
+                      width: 90,
+                      height: 34,
+                      decoration: BoxDecoration(
+                          // border: Border.all(color: Colors.black.withOpacity(.2)),
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white),
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            FontAwesomeIcons.whatsapp,
+                            color: Colors.green,
+                            size: 18,
+                          ),
+                          SizedBox(
+                            width: 8,
+                          ),
+                          Text(
+                            'Whatsapp',
+                            style: TextStyle(color: Colors.blue),
+                          )
+                        ],
+                      ),
                     ),
                   ),
-                 
                 ],
               )
             ],
@@ -165,66 +186,3 @@ void _makePhoneCall() async {
     throw 'Could not launch $phoneUrl';
   }
 }
-//  Padding(
-//                 padding: const EdgeInsets.only(top: 8.0),
-//                 child: Row(
-//                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//                   children: [
-//                     Container(
-//                       width: 38,
-//                       height: 38,
-//                       decoration: BoxDecoration(
-//                         border: Border.all(color: Colors.black),
-//                         borderRadius: BorderRadius.circular(10),
-//                         color: Colors.white
-                        
-//                       ),
-//                       child: IconButton(
-//                           onPressed: () {},
-//                           icon:const Icon(
-//                             FontAwesomeIcons.locationDot,
-//                             color: Colors.blue,
-//                             size: 24,
-//                           )),
-//                     ),
-//                     Container(
-//                       width: 40,
-//                       height: 40,
-//                        decoration: BoxDecoration(
-//                         border: Border.all(color: Colors.black),
-//                         borderRadius: BorderRadius.circular(10),
-//                         color: Colors.white
-                        
-//                       ),
-//                       child: IconButton(
-//                           onPressed: () {
-//                             _launchWhatsApp();
-//                           },
-//                           icon: const Icon(
-//                             FontAwesomeIcons.whatsapp,
-//                             color: Colors.green,
-//                             size: 26,
-//                           )),
-//                     ),
-//                     Container(
-//                       width: 38,
-//                       height: 38,
-//                        decoration: BoxDecoration(
-//                         border: Border.all(color: Colors.black),
-//                         borderRadius: BorderRadius.circular(10),
-//                         color: Colors.white
-                        
-//                       ),
-//                       child: IconButton(
-//                           onPressed: () {
-//                             _makePhoneCall();
-//                           },
-//                           icon:const Icon(
-//                             FontAwesomeIcons.phone,
-//                             color: Color(0xff088408),
-//                             size: 24,
-//                           )),
-//                     ),
-//                   ],
-//                 ),
-//               )
