@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:roadside_assitance/classes/shared_preferences.dart';
+import 'package:roadside_assitance/views/log_in_page.dart';
 import 'package:roadside_assitance/widgets/custom_button.dart';
 
 
@@ -13,7 +15,7 @@ class settingsView extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
         children: [
           customButton(
-            text: "عربي",
+            text: "عربي", 
             font_size: 25,
             onTap: (){},
             ),
@@ -27,8 +29,9 @@ class settingsView extends StatelessWidget {
           customButton(
             text: "Log Out",
             font_size: 25,
-            onTap: (){
-              Navigator.of(context).pop();
+            onTap: ()async{
+            await  TokenManager.removeToken();
+              Navigator.pushNamedAndRemoveUntil(context, LogInPage.Id, (route) => false);
             },
             ),
         
