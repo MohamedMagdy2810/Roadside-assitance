@@ -5,6 +5,7 @@ import 'package:roadside_assitance/views/home_view.dart';
 import 'package:roadside_assitance/views/log_in_page.dart';
 import 'package:roadside_assitance/views/register_page.dart';
 import 'package:roadside_assitance/views/services_page.dart';
+import 'package:roadside_assitance/views/servive_provider_signup.dart';
 import 'package:roadside_assitance/views/splash_screen.dart';
 
 void main() {
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
         LogInPage.Id: (context) =>const  LogInPage(),
         homeView.Id: (context) =>const  homeView(),
         ServivesView.ID: (context) =>  ServivesView(),
+        service_provider_page.ID: (context) =>  service_provider_page(),
       },
       // home: LogInPage(),
       

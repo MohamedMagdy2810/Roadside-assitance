@@ -237,7 +237,7 @@ class _registerPageState extends State<registerPage> {
                   height: 32,
                 ),
                 customButton(
-                  text: 'Continue',
+                  text: 'Sign up',
                   onTap: () {
                     // // logIn(name!, password);
                     if (reg_FormKey.currentState!.validate()) {
@@ -254,10 +254,4 @@ class _registerPageState extends State<registerPage> {
     );
   }
 }
- // void logIn(String emaill, passwordd) async {
-  //   http.Response response = await http.post(
-  //       Uri.parse(
-  //           'https://1644-197-120-14-241.ngrok-free.app/users/customers/register/'),
-  //       body: {'username': emaill, 'password': passwordd});
-  //   print(response.statusCode);
-  // }
+ 

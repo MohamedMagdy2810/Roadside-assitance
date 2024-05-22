@@ -17,11 +17,13 @@ class CustomPasswordField extends StatelessWidget {
         this.validation,
         this.suffixPressed,
         this.suffix,
+        this.height = 64,
         this.icon_colol,
         this.controller,
         required this.isPassword,
         });
   final String hintText;
+  final double height;
   Function(String?)? onChanged;
   Function()? suffixPressed;
   IconData ? suffix ;
@@ -33,34 +35,37 @@ class CustomPasswordField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      obscureText:isPassword,
-      validator: validation,
-      onChanged: onChanged,
-      controller: controller,
-      decoration: InputDecoration(
-        suffixIcon:IconButton(
-        onPressed: suffixPressed,
-        icon: Icon(
-          suffix,
-          size: 20,
-          color: icon_colol,
+    return Container(
+      height: height,
+      child: TextFormField(
+        obscureText:isPassword,
+        validator: validation,
+        onChanged: onChanged,
+        controller: controller,
+        decoration: InputDecoration(
+          suffixIcon:IconButton(
+          onPressed: suffixPressed,
+          icon: Icon(
+            suffix,
+            size: 20,
+            color: icon_colol,
+          ),
         ),
+            hintText: hintText,
+            hintStyle:  TextStyle(color:lightGreen.withOpacity(.45),fontSize: 15),
+            // labelText: hintText,
+            // labelStyle:TextStyle(color:lightGreen.withOpacity(.45),fontSize: 15) ,
+            
+            enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: const BorderSide(color: KprimaryColor)),
+            focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: const BorderSide(color: KprimaryColor)),
+            border: const OutlineInputBorder(
+                borderSide: BorderSide(color: KprimaryColor))),
+            
       ),
-          hintText: hintText,
-          hintStyle:  TextStyle(color:lightGreen.withOpacity(.45),fontSize: 15),
-          // labelText: hintText,
-          // labelStyle:TextStyle(color:lightGreen.withOpacity(.45),fontSize: 15) ,
-          
-          enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: const BorderSide(color: KprimaryColor)),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: const BorderSide(color: KprimaryColor)),
-          border: const OutlineInputBorder(
-              borderSide: BorderSide(color: KprimaryColor))),
-          
     );
   }
 }

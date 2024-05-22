@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:roadside_assitance/views/log_in_page.dart';
+import 'package:roadside_assitance/views/servive_provider_signup.dart';
 import 'package:roadside_assitance/widgets/custom_button.dart';
 
 class first_screen extends StatelessWidget {
@@ -44,7 +45,7 @@ class first_screen extends StatelessWidget {
               text: 'Service provider',
               font_size: 24,
               onTap: () {
-                Navigator.pushNamed(context, LogInPage.Id);
+                Navigator.pushNamed(context, service_provider_page.ID);
               },
             )
           ],

@@ -133,7 +133,7 @@ class _LogInPageState extends State<LogInPage> {
                         height: 32,
                       ),
                       customButton(
-                        text: 'Continue',
+                        text: 'Log in',
                         onTap: () async {
                           if (log_FormKey.currentState!.validate()) {
                             setState(() {
@@ -165,8 +165,4 @@ class _LogInPageState extends State<LogInPage> {
   }
 }
 
-void showSnackBar(BuildContext context, String message) {
-  ScaffoldMessenger.of(context).showSnackBar(
-    SnackBar(content: Text(message)),
-  );
-}
+
