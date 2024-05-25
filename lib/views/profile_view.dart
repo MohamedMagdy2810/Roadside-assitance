@@ -14,6 +14,9 @@ import 'package:roadside_assitance/widgets/custom_text_field.dart';
 
   var f_name_person = TextEditingController();
   var l_name_person = TextEditingController();
+  var f_name_provider = TextEditingController();
+  var l_name_provider = TextEditingController();
+  
   var yyy = "${f_name_person.text} ${l_name_person.text}";
   var phone_num = TextEditingController();
  

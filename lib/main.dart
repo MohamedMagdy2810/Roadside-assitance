@@ -21,16 +21,16 @@ class MyApp extends StatelessWidget {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
        initialRoute: '/',
-      routes: {
-         '/': (context) => SplashScreen(),
-        registerPage.Id: (context) =>  registerPage(),
-        first_screen.ID: (context) =>  first_screen(),
-        LogInPage.Id: (context) =>const  LogInPage(),
-        homeView.Id: (context) =>const  homeView(),
-        ServivesView.ID: (context) =>  ServivesView(),
-        service_provider_page.ID: (context) =>  service_provider_page(),
-      },
-      // home: LogInPage(),
+      // routes: {
+      //    '/': (context) => SplashScreen(),
+      //   registerPage.Id: (context) =>  registerPage(),
+      //   first_screen.ID: (context) =>  first_screen(),
+      //   LogInPage.Id: (context) =>const  LogInPage(),
+      //   homeView.Id: (context) =>const  homeView(),
+      //   ServivesView.ID: (context) =>  ServivesView(),
+      //   service_provider_page.ID: (context) =>  service_provider_page(),
+      // },
+      home: service_provider_page(),
       
     );}
      
