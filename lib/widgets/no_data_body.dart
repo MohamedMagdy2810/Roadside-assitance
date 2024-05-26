@@ -5,18 +5,16 @@ import 'package:roadside_assitance/models/_model.dart';
 import 'package:roadside_assitance/views/services_page.dart';
 import 'package:roadside_assitance/widgets/custom_request_service_card.dart';
 
-class homeViewBody extends StatelessWidget {
-  const homeViewBody({
-    super.key,
-  });
+class noData extends StatelessWidget {
+  const noData({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  Column(
-
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-        Padding(
+    return   Column(
+        
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+             Padding(
               padding:
                   const EdgeInsets.symmetric(vertical: 32.0, horizontal: 32),
               child:  GestureDetector(
@@ -41,19 +39,25 @@ class homeViewBody extends StatelessWidget {
                   ),
                 ),
               )),
-         const Padding(
-            padding:  EdgeInsets.only(left:16.0),
-            child: Text(
-              ' Service providers',
-              style: TextStyle(
-                  color: lightGreen,
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold),
+         
+            Padding(
+              padding: EdgeInsets.only(right: 140.0),
+              child: Text(
+                'Service providers',
+                style: TextStyle(
+                    color: lightGreen,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold),
+              ),
             ),
-          ),
-          customRequestWidget(response_model('Mohamed', 'Gas Station', 012, 012))
-        ],
-      )
+            SizedBox(height: 16,),
+            Image.asset('assets/images/m.jpg',),
+            SizedBox(height: 16,),
+            Text('OOPS',style: TextStyle(color: Color(0xff275217),fontSize: 40,fontWeight: FontWeight.bold),),
+            Text('No requests yet',style: TextStyle(color: Color(0xff275217),fontSize: 40,fontWeight: FontWeight.bold),)
+            // customRequestWidget(response_model('Mohamed', 'Gas Station', 012, 012))
+          ],
+        )
     ;
   }
 }

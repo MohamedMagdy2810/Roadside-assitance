@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:roadside_assitance/classes/shared_preferences.dart';
 import 'package:roadside_assitance/constants.dart';
+import 'package:roadside_assitance/models/service_model.dart';
 import 'package:roadside_assitance/views/register_page.dart';
+import 'package:roadside_assitance/views/services_page.dart';
 import 'package:roadside_assitance/widgets/home_view_body.dart';
 import 'package:roadside_assitance/views/profile_view.dart';
 import 'package:roadside_assitance/views/sttings_view.dart';
+import 'package:roadside_assitance/widgets/no_data_body.dart';
 
 class homeView extends StatefulWidget {
   const homeView({super.key});
@@ -16,7 +19,11 @@ class homeView extends StatefulWidget {
 }
 
 class _homeViewState extends State<homeView> {
-  List<Widget> widgetsList = [const homeViewBody(), profileView(), const settingsView()];
+  List<Widget> widgetsList = [
+    
+                                                    // serviceModel ==null ? const homeViewBody() :
+                                                    const homeViewBody(),
+                                                     profileView(), const settingsView()];
   int selectedIndex = 0;
   String? firstName;
 
@@ -63,7 +70,13 @@ class _homeViewState extends State<homeView> {
         ),
         backgroundColor: const Color(0xff275217),
       ),
-      body: widgetsList.elementAt(selectedIndex),
+      body: Column(
+        children: [
+          
+              widgetsList.elementAt(selectedIndex)
+
+        ],
+      ),
       bottomNavigationBar: bottomNavigatorBar(),
     );
   }
