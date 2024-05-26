@@ -1,28 +1,39 @@
 class api_response_model_login {
   final String token;
-  final int ID;
-  final bool is_customer;
+  final userModel user;
 
-  api_response_model_login(
-      {required this.token, required this.ID, required this.is_customer});
+  api_response_model_login({
+    required this.token,
+    required this.user,
+  });
   factory api_response_model_login.fromJson(jsonData) {
     return api_response_model_login(
-        token: jsonData['token'],
-        ID: jsonData['user_id'],
-        is_customer: jsonData['is_customer']);
+        token: jsonData['token'], user:userModel.fromJson(jsonData['user']) );
   }
 }
-class api_response_model_signUp {
-  final String token;
-  final String message;
-  
 
-  api_response_model_signUp(
-      {required this.token, required this.message,});
-  factory api_response_model_signUp.fromJson(jsonData) {
-    return api_response_model_signUp(
-        token: jsonData['token'],
-        message: jsonData['message'],
-    );
+class userModel  {
+  final String f_name;
+  final String l_name;
+  final String email;
+  final String userName;
+  final bool isCustome;
+
+  userModel(
+      {required this.f_name,
+      required this.l_name,
+      required this.email,
+      required this.userName,
+      required this.isCustome});
+
+  factory userModel.fromJson(jsonData) {
+    return userModel(
+        f_name: jsonData['first_name'],
+        l_name: jsonData['last_name'],
+        email: jsonData['email'],
+        userName: jsonData['username'],
+        isCustome: jsonData['is_customer']);
   }
+
+  
 }

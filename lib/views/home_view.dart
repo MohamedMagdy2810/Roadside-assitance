@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:roadside_assitance/classes/shared_preferences.dart';
 import 'package:roadside_assitance/constants.dart';
 import 'package:roadside_assitance/views/register_page.dart';
 import 'package:roadside_assitance/widgets/home_view_body.dart';
@@ -15,39 +16,52 @@ class homeView extends StatefulWidget {
 }
 
 class _homeViewState extends State<homeView> {
-  List<Widget> widgetsList = [const homeViewBody(), profileView(),const settingsView()];
+  List<Widget> widgetsList = [const homeViewBody(), profileView(), const settingsView()];
   int selectedIndex = 0;
+  String? firstName;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadFirstName();
+  }
+
+  Future<void> _loadFirstName() async {
+    final name = await userManager.getName();
+    setState(() {
+      firstName = name;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-       flexibleSpace: Padding(
-         padding: const EdgeInsets.only(top: 36,bottom: 20,left: 250,right: 16),
-         child: Container(
-          width: 50,
-          height: 32,
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(8),
-          color: Colors.white),
-           child: Row(
-            
-            children: [
-           const   SizedBox(
-            width: 8,
-           ),
-          const Icon(FontAwesomeIcons.circleUser),
-          const SizedBox(
-            width: 8,
-           ),
-           Text('Hi $frist_name',style:const TextStyle(
-            fontWeight: FontWeight.bold
-           ),)
-            
-           ],),
-         ),
-       ),
-       
-        backgroundColor:const Color(0xff275217),
-    
+        flexibleSpace: Padding(
+          padding: const EdgeInsets.only(top: 36, bottom: 20, left: 250, right: 16),
+          child: Container(
+            width: 50,
+            height: 32,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: Colors.white,
+            ),
+            child: Row(
+              children: [
+                const SizedBox(width: 8),
+                const Icon(FontAwesomeIcons.circleUser),
+                const SizedBox(width: 8),
+                Text(
+                  'Hi ${firstName ?? ''}',
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        backgroundColor: const Color(0xff275217),
       ),
       body: widgetsList.elementAt(selectedIndex),
       bottomNavigationBar: bottomNavigatorBar(),

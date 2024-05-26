@@ -12,23 +12,30 @@ class auth {
   Future<dynamic> logIn(BuildContext context, String email, password) async {
     http.Response response = await http.post(
         Uri.parse(
-          '$baseUrl/login/',
+          'https://geodjango-test-no-docker.onrender.com/api/login/',
         ),
         body: {
           'username': email,
           'password': password,
         });
-    if (response.statusCode == 200) {
+        print(response.body);
+        print(' status code is ===> ${response.statusCode}');
+       
+ if (response.statusCode == 200) {
       // Parse the JSON response
       Map<String, dynamic> jsonResponse = json.decode(response.body);
       api_response_model_login responseModel =
           api_response_model_login.fromJson(jsonResponse);
+
+      // Save the token
       await TokenManager.saveToken(responseModel.token);
-  
+      await userManager.saveName(responseModel.user.f_name);
+
+      // Continue with your navigation or other logic
       navigateIfSuccessful(context, response.statusCode);
     }
 
-    print(' status code is ===> ${response.statusCode}');
+    
   }
 
  void navigateIfSuccessful(BuildContext context, int statusCode) {
@@ -47,7 +54,7 @@ class auth {
       password2, username, firstName, lastName) async {
     http.Response response = await http.post(
         Uri.parse(
-          '$baseUrl/customer/',
+          'https://geodjango-test-no-docker.onrender.com/api/signup/customer/',
         ),
         body: {
           'username': username,
@@ -60,11 +67,12 @@ class auth {
     if (response.statusCode == 201) {
       // Parse the JSON response
       Map<String, dynamic> jsonResponse = json.decode(response.body);
-      api_response_model_signUp responseModel =
-          api_response_model_signUp.fromJson(jsonResponse);
+      api_response_model_login responseModel =
+          api_response_model_login.fromJson(jsonResponse);
 
       // Save the token
       await TokenManager.saveToken(responseModel.token);
+      await userManager.saveName(responseModel.user.f_name);
 
       // Continue with your navigation or other logic
       navigateIfSuccessful(context, response.statusCode);

@@ -136,17 +136,12 @@ class _LogInPageState extends State<LogInPage> {
                         text: 'Log in',
                         onTap: () async {
                           if (log_FormKey.currentState!.validate()) {
+
                             setState(() {
                               isLoading = true;
                             });
-
-                            try {
-                              await auth().logIn(context, email, password);
-                        
-                            } catch (e) {
-                              // showSnackBar(context, 'Login failed: ${e.toString()}');
-                            }
-
+                            await auth().logIn(context, email, password);
+                            
                             setState(() {
                               isLoading = false;
                             });
