@@ -2,12 +2,12 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:roadside_assitance/models/_model.dart';
+import 'package:roadside_assitance/models/data_response_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class customRequestWidget extends StatelessWidget {
   customRequestWidget(this.responseModel);
-  final response_model responseModel;
+  final response_model? responseModel;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,8 @@ class customRequestWidget extends StatelessWidget {
                     width: 8,
                   ),
                   Text(
-                    responseModel.name,
+                    // responseModel.service_provider.userName??responseModel.user.userName,
+                    'Mohamed',
                     style: const TextStyle(
                         fontWeight: FontWeight.bold, fontSize: 22),
                   ),
@@ -49,7 +50,8 @@ class customRequestWidget extends StatelessWidget {
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
                   ),
                   Text(
-                    responseModel.servicType,
+                    // responseModel.service_provider.service_type,
+                      'gas station',
                     style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 22,
