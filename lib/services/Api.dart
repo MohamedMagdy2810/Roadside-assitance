@@ -82,3 +82,19 @@ class auth {
     print(response.body);
   }
 }
+
+class getData {
+  Future<dynamic> get_data() async {
+    http.Response response = await http.post(
+        Uri.parse(
+          'https://geodjango-test-no-docker.onrender.com/api/get-all-nearby/',
+        ),
+        body: {
+          'current_location':'Point ()'
+        },
+        headers: {
+          'Authorization':TokenManager.getToken().toString()
+        });
+        print(response.statusCode);
+}
+}
