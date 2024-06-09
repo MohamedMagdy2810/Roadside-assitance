@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:roadside_assitance/views/first_screen.dart';
 import 'package:roadside_assitance/views/home_view.dart';
+import 'package:roadside_assitance/views/intro_screens.dart';
 
 import 'package:roadside_assitance/views/log_in_page.dart';
 import 'package:roadside_assitance/views/register_page.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
          '/': (context) => SplashScreen(),
         registerPage.Id: (context) =>  registerPage(),
         first_screen.ID: (context) =>  first_screen(),
+        introScreens.ID: (context) =>  introScreens(),
         LogInPage.Id: (context) =>const  LogInPage(),
         homeView.Id: (context) =>const  homeView(),
         ServivesView.ID: (context) =>  ServivesView(),
