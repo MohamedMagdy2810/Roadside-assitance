@@ -83,18 +83,30 @@ class auth {
   }
 }
 
-class getData {
-  Future<dynamic> get_data() async {
-    http.Response response = await http.post(
-        Uri.parse(
-          'https://geodjango-test-no-docker.onrender.com/api/get-all-nearby/',
-        ),
-        body: {
-          'current_location':'Point ()'
-        },
-        headers: {
-          'Authorization':TokenManager.getToken().toString()
-        });
-        print(response.statusCode);
-}
+class GetData {
+  Future<dynamic> getData(String token) async {
+    // Construct the request body as a JSON-encoded string
+    final body = json.encode({
+      'current_location': 'Point(31.72292729304304 31.35974833774494)',
+      'radius': 5000
+    });
+
+    // Make the HTTP POST request
+    final response = await http.post(
+      Uri.parse('https://geodjango-test-no-docker.onrender.com/api/get-all-nearby/'),
+      headers: {
+        'Content-Type': 'application/json',  // Specify the content type
+        'Authorization': 'Token $token'
+      },
+      body: body
+    );
+
+    // Print the response status code and body
+    print(response.statusCode);
+    print(response.body);
+    print('token=>>>$token');
+
+    // Return the response body
+    return json.decode(response.body);  // Decode the response body to a Dart object
+  }
 }

@@ -1,13 +1,38 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:roadside_assitance/classes/shared_preferences.dart';
 import 'package:roadside_assitance/constants.dart';
 import 'package:roadside_assitance/models/service_model.dart';
+import 'package:roadside_assitance/services/Api.dart';
 import 'package:roadside_assitance/widgets/alert_dialog.dart';
 
-class servicesCard extends StatelessWidget {
+class servicesCard extends StatefulWidget {
   servicesCard({super.key, required this.service_model});
   final serviceModel service_model;
+
   @override
+  State<servicesCard> createState() => _servicesCardState();
+}
+
+    String? token;
+class _servicesCardState extends State<servicesCard> {
+  @override
+   @override
+  void initState() {
+    super.initState();
+    _loadToken();
+  }
+
+  Future<void> _loadToken() async {
+    final Token = await TokenManager.getToken();
+    setState(() {
+      token = Token;
+      // print('token =>>$token');
+    });
+  }
+ 
+
+  
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
@@ -29,7 +54,7 @@ class servicesCard extends StatelessWidget {
                 height: 8,
               ),
               Image.asset(
-                service_model.image,
+                widget.service_model.image,
                 height: 75,
                 width: 75,
               ),
@@ -37,7 +62,7 @@ class servicesCard extends StatelessWidget {
                 height: 8,
               ),
               Text(
-                service_model.name,
+                widget.service_model.name,
                 style:
                     const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               )
@@ -47,4 +72,46 @@ class servicesCard extends StatelessWidget {
       ),
     );
   }
+}
+
+
+
+showAlertDialog(BuildContext context) {
+  // set up the buttons
+  Widget cancelButton = TextButton(
+    child: Text(
+      "Cancel",
+      style: TextStyle(color: Colors.black),
+    ),
+    onPressed: () {
+      Navigator.pop(context);
+    },
+  );
+  Widget continueButton = TextButton(
+    child: Text("Yes", style: TextStyle(color: Colors.black)),
+    onPressed: () {
+      GetData().getData(token!);
+       Navigator.pop(context);
+    },
+  );
+
+  // set up the AlertDialog
+  AlertDialog alert = AlertDialog(
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+    elevation: .5,
+    title: Text("Alert"),
+    content: Text("Are you sure to request this service?"),
+    actions: [
+      cancelButton,
+      continueButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
 }

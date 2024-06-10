@@ -31,6 +31,7 @@ class _LogInPageState extends State<LogInPage> {
   @override
   Widget build(BuildContext context) {
     return ModalProgressHUD(
+      color: KprimaryColor,
       inAsyncCall: isLoading, // Use the isLoading state
       child: Scaffold(
         backgroundColor: lightWhite,

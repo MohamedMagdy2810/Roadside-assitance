@@ -13,17 +13,17 @@ import 'package:roadside_assitance/widgets/no_data_body.dart';
 class homeView extends StatefulWidget {
   const homeView({super.key});
   static String Id = 'homePage';
-  
+
   @override
   State<homeView> createState() => _homeViewState();
 }
 
 class _homeViewState extends State<homeView> {
   List<Widget> widgetsList = [
-    
-                                                    // serviceModel ==null ? const homeViewBody() :
-                                                    const homeViewBody(),
-                                                     profileView(), const settingsView()];
+    // serviceModel ==null ? const homeViewBody() :
+    const homeViewBody(),
+    profileView(), const settingsView()
+  ];
   int selectedIndex = 0;
   String? firstName;
 
@@ -45,7 +45,8 @@ class _homeViewState extends State<homeView> {
     return Scaffold(
       appBar: AppBar(
         flexibleSpace: Padding(
-          padding: const EdgeInsets.only(top: 36, bottom: 20, left: 250, right: 16),
+          padding:
+              const EdgeInsets.only(top: 36, bottom: 20, left: 250, right: 16),
           child: Container(
             width: 50,
             height: 32,
@@ -71,11 +72,7 @@ class _homeViewState extends State<homeView> {
         backgroundColor: const Color(0xff275217),
       ),
       body: Column(
-        children: [
-          
-              widgetsList.elementAt(selectedIndex)
-
-        ],
+        children: [widgetsList.elementAt(selectedIndex)],
       ),
       bottomNavigationBar: bottomNavigatorBar(),
     );
