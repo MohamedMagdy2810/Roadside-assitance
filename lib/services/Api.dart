@@ -86,7 +86,7 @@ class GetData {
       Map<String, dynamic> jsonData = jsonDecode(response.body);
 
       response_model responseModel = response_model.fromJson(jsonData);
-
+   
       return responseModel;
     } else {
       print('Failed to load data: ${response.statusCode}');

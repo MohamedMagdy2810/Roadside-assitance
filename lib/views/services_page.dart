@@ -5,6 +5,7 @@ import 'package:roadside_assitance/widgets/bottom_sheet.dart';
 import 'package:roadside_assitance/widgets/custom_service_card.dart';
 
 class ServivesView extends StatelessWidget {
+  
   ServivesView({super.key});
   static String ID = 'servicsPage';
   final List<servicesCard> services = [

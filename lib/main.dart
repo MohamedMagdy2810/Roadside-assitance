@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:roadside_assitance/request_data_cubit/get_data_cubit.dart';
 import 'package:roadside_assitance/views/first_screen.dart';
 import 'package:roadside_assitance/views/home_view.dart';
 import 'package:roadside_assitance/views/intro_screens.dart';
@@ -19,21 +21,24 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
-      debugShowCheckedModeBanner: false,
-       initialRoute: '/',
-      routes: {
-         '/': (context) => SplashScreen(),
-        registerPage.Id: (context) =>  registerPage(),
-        first_screen.ID: (context) =>  first_screen(),
-        introScreens.ID: (context) =>  introScreens(),
-        LogInPage.Id: (context) =>const  LogInPage(),
-        homeView.Id: (context) =>const  homeView(),
-        ServivesView.ID: (context) =>  ServivesView(),
-        service_provider_page.ID: (context) =>  service_provider_page(),
-      },
-      // home: service_provider_page(),
-      
+    return  BlocProvider(
+      create: (context) => getDataCubit(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+         initialRoute: '/',
+        routes: {
+           '/': (context) => SplashScreen(),
+          registerPage.Id: (context) =>  registerPage(),
+          first_screen.ID: (context) =>  first_screen(),
+          introScreens.ID: (context) =>  introScreens(),
+          LogInPage.Id: (context) =>const  LogInPage(),
+          homeView.Id: (context) =>const  homeView(),
+          ServivesView.ID: (context) =>  ServivesView(),
+          service_provider_page.ID: (context) =>  service_provider_page(),
+        },
+        // home: service_provider_page(),
+        
+      ),
     );}
      
 }
