@@ -9,30 +9,29 @@ class introScreens extends StatelessWidget {
     return IntroductionScreen(
       pages: [
         PageViewModel(
-          title: "Introduction 1",
-          body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisi nulla purus neque quisque dictum dui. Accumsan fames adipiscing.",
+          title: "We Here For You",
+          body: "Quick access to rescue ,The best protection for your data ,The best services for you.",
           image: Center(
-            child: Image.asset("assets/images/m.jpg", height: 250.0),
+            child: Image.asset("assets/images/m2.png", height: 250.0),
           ),
           decoration: getPageDecoration(),
         ),
         PageViewModel(
-          title: "Introduction 2",
-          body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisi nulla purus neque quisque dictum dui. Accumsan fames adipiscing.",
-          image: Center(
-            child: Image.asset("assets/images/m.jpg", height: 250.0),
-          ),
+          title: "Did your car break down?",
+          body: "We provide you with the best service to repair all car problems such as car breakdown, battery problems, engine oil problems, and fuel shortages.",
+          image: Image.asset(
+            "assets/images/Repair.png"
+            ,height: 150,
+            ),
           decoration: getPageDecoration(),
         ),
         PageViewModel(
-          title: "Introduction 3",
-          body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisi nulla purus neque quisque dictum dui. Accumsan fames adipiscing.",
-          image: Center(
-            child: Image.asset("assets/images/m.jpg", height: 250.0),
-          ),
+          title: "Are your tires safe?",
+          body: " We provide you with the best service to repair all car tire problems on the road, and to achieve safety on your trip.",
+          image: Image.asset("assets/images/flat_tire.png",),
           decoration: getPageDecoration(),
         ),
-      ],
+              ],
       onDone: () {
         // Handle when done is pressed
         Navigator.of(context).pushReplacementNamed(first_screen.ID);
@@ -43,17 +42,17 @@ class introScreens extends StatelessWidget {
       },
       showSkipButton: true,
       skip: const Text("Skip", style: TextStyle(color: Colors.black)),
-      next: const Icon(Icons.arrow_forward, color: Colors.blue),
-      done: const Text("Done", style: TextStyle(fontWeight: FontWeight.w600, color: Colors.blue)),
+      next: const Icon(Icons.arrow_forward, color: Color(0xff2B5F1D)),
+      done: const Text("Done", style: TextStyle(fontWeight: FontWeight.w900, color: Color(0xff2B5F1D))),
       dotsDecorator: getDotDecoration(),
-      globalBackgroundColor: Colors.white,
+      globalBackgroundColor: Color(0xFFF4F2EF),
     );
   }
 
   DotsDecorator getDotDecoration() {
     return DotsDecorator(
       color: Colors.black26,
-      activeColor: Colors.blue,
+      activeColor: Color(0xff2B5F1D),
       size: Size(10.0, 10.0),
       activeSize: Size(22.0, 10.0),
       activeShape: RoundedRectangleBorder(
@@ -68,7 +67,7 @@ class introScreens extends StatelessWidget {
       bodyTextStyle: TextStyle(fontSize: 16.0),
       bodyPadding: EdgeInsets.all(16.0).copyWith(bottom: 0),
       imagePadding: EdgeInsets.all(24.0),
-      pageColor: Colors.white,
+      pageColor: Color(0xFFF4F2EF),
     );
   }
 }
