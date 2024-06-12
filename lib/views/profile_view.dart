@@ -33,11 +33,11 @@ class _profileViewState extends State<profileView> {
   final List<TextEditingController>ccc = [f_name_person , l_name_person];
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.all(20.0),
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: SingleChildScrollView(
         child: Column(
-      
+              
           children: [
            const SizedBox(height: 40,),
             Container(
@@ -63,7 +63,8 @@ class _profileViewState extends State<profileView> {
                 controller: f_name_person ,
                 ),
             ),
-          const  SizedBox(height: 30,),
+            const  SizedBox(height: 10,),
+          // const  SizedBox(height: 30,),
             Container(
               alignment:AlignmentDirectional.topStart,
               child:const Text(
@@ -87,7 +88,8 @@ class _profileViewState extends State<profileView> {
                 controller: username,
                 ),
             ),
-           const  SizedBox(height: 30,),
+          //  const  SizedBox(height: 30,),
+          const  SizedBox(height: 10,),
             Container(
               alignment:AlignmentDirectional.topStart,
               child:const Text(
@@ -99,6 +101,7 @@ class _profileViewState extends State<profileView> {
                 ),
               ),
             ),
+          // const  SizedBox(height: 10,),
           const  SizedBox(height: 10,),
             Container(
               height: 50,
@@ -111,8 +114,8 @@ class _profileViewState extends State<profileView> {
                 controller: user_email,
                 ),
             ),
-
-           const SizedBox(height: 30,),
+            const  SizedBox(height: 10,),
+          //  const SizedBox(height: 30,),
             Container(
               alignment:AlignmentDirectional.topStart,
               child:const Text(
@@ -124,7 +127,8 @@ class _profileViewState extends State<profileView> {
                 ),
               ),
             ),
-         const   SizedBox(height: 10,),
+            const  SizedBox(height: 10,),
+        //  const   SizedBox(height: 10,),
             Container(
               height: 50,
               decoration:const BoxDecoration(
@@ -136,7 +140,8 @@ class _profileViewState extends State<profileView> {
                 controller:phone_num ,
                 ),
             ),
-          const  SizedBox(height: 30,),
+            const  SizedBox(height: 10,),
+          // const  SizedBox(height: 30,),
             Container(
               alignment:AlignmentDirectional.topStart,
               child:const Text(
@@ -167,7 +172,8 @@ class _profileViewState extends State<profileView> {
                   }, 
                 ),
             ),
-         const   SizedBox(height: 50,),
+            const  SizedBox(height: 30,),
+        //  const   SizedBox(height: 50,),
             customButton(
               text: "Save",
               font_size: 20,

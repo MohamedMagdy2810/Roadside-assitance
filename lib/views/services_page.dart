@@ -19,7 +19,7 @@ class ServivesView extends StatelessWidget {
             name: 'Low fuel', image: 'assets/images/low_fuel.png')),
     servicesCard(
         service_model:
-            serviceModel(name: 'Towing', image: 'assets/images/towing.png')),
+            serviceModel(name: 'Repair', image: 'assets/images/Repair.png')),
     servicesCard(
         service_model: serviceModel(
             name: 'Flat tire', image: 'assets/images/flat_tire.png')),
@@ -65,11 +65,11 @@ class ServivesView extends StatelessWidget {
         showModalBottomSheet(
           isScrollControlled: true,
           context: context, builder: (context){
-          return const bottomSheet();
+          return const BottomSheetWidget();
         });
       },
       backgroundColor: KprimaryColor,
-      child:const Icon(Icons.add,size: 32,),),
+      child:Image.asset('assets/images/towing.png',height: 32,),),
     );
   }
 }

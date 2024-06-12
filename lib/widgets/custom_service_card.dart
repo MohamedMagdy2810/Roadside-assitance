@@ -4,7 +4,7 @@ import 'package:roadside_assitance/classes/shared_preferences.dart';
 import 'package:roadside_assitance/constants.dart';
 import 'package:roadside_assitance/models/service_model.dart';
 import 'package:roadside_assitance/services/Api.dart';
-import 'package:roadside_assitance/widgets/alert_dialog.dart';
+
 
 class servicesCard extends StatefulWidget {
   servicesCard({super.key, required this.service_model});

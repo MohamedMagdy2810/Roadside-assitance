@@ -18,33 +18,20 @@ class auth {
           'username': email,
           'password': password,
         });
-        print(response.body);
-        print(' status code is ===> ${response.statusCode}');
-       
+        
  if (response.statusCode == 200) {
-      // Parse the JSON response
       Map<String, dynamic> jsonResponse = json.decode(response.body);
       api_response_model_login responseModel =
           api_response_model_login.fromJson(jsonResponse);
-
-      // Save the token
       await TokenManager.saveToken(responseModel.token);
       await userManager.saveName(responseModel.user.f_name);
-
-      // Continue with your navigation or other logic
       navigateIfSuccessful(context, response.statusCode);
     }
-
-    
   }
-
  void navigateIfSuccessful(BuildContext context, int statusCode) {
   if (statusCode == 200 || statusCode == 201) {
     showSnackbar(context, 'Successful');
-
-    
       Navigator.pushNamedAndRemoveUntil(context, homeView.Id, (route) => false);
-    
   } else {
     showSnackbar(context, 'Invalid, try again');
   }
@@ -65,16 +52,11 @@ class auth {
           'password2': password2,
         });
     if (response.statusCode == 201) {
-      // Parse the JSON response
       Map<String, dynamic> jsonResponse = json.decode(response.body);
       api_response_model_login responseModel =
           api_response_model_login.fromJson(jsonResponse);
-
-      // Save the token
       await TokenManager.saveToken(responseModel.token);
       await userManager.saveName(responseModel.user.f_name);
-
-      // Continue with your navigation or other logic
       navigateIfSuccessful(context, response.statusCode);
     }
 
