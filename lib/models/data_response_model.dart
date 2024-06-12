@@ -1,63 +1,68 @@
 class response_model {
-  final serviceProviders service_provider;
-  final USERS user;
+  final List<ServiceProvider> serviceProviders;
+  final List<User> users;
 
   response_model({
-    required this.service_provider,
-    required this.user,
+    required this.serviceProviders,
+    required this.users,
   });
-  factory response_model.fromJson(jsonData) {
+
+  factory response_model.fromJson(Map<String, dynamic> jsonData) {
+    var serviceProvidersJson = jsonData['nearby_service_providers'] as List;
+    var usersJson = jsonData['nearby_users'] as List;
+
+    List<ServiceProvider> serviceProvidersList = serviceProvidersJson
+        .map((item) => ServiceProvider.fromJson(item))
+        .toList();
+
+    List<User> usersList = usersJson.map((item) => User.fromJson(item)).toList();
+
     return response_model(
-        service_provider: serviceProviders.fromJson(jsonData['nearby_service_providers']),
-         user:USERS.fromJson(jsonData['nearby_users']) );
+      serviceProviders: serviceProvidersList,
+      users: usersList,
+    );
   }
 }
 
-class USERS  {
- 
-  final int num;
-  final String userName;
-  final List location;
+class User {
+  final String username;
+  final String? phoneNumber;
+  final List<double> location;
 
-  USERS(
-      {
-     
-      required this.userName,
-      required this.num,
-      required this.location});
+  User({
+    required this.username,
+    required this.phoneNumber,
+    required this.location,
+  });
 
-  factory USERS.fromJson(jsonData) {
-    return USERS(
-       
-        num: jsonData['phone_number'],
-        userName: jsonData['username'],
-        location: jsonData['location']);
+  factory User.fromJson(Map<String, dynamic> jsonData) {
+    return User(
+      username: jsonData['username'],
+      phoneNumber: jsonData['phone_number'],
+      location: List<double>.from(jsonData['location']),
+    );
   }
-
-  
 }
 
-class serviceProviders  {
-  final String service_type;
-  final String? userName;
-  final int? num;
-  final List location;
+class ServiceProvider {
+  final String username;
+  final String? phoneNumber;
+  final String serviceType;
+  final List<double> location;
 
-  serviceProviders(
-      {
-        this.num,
-      required this.service_type,
-      required this.userName,
-      required this.location});
+  ServiceProvider({
+    required this.username,
+    required this.phoneNumber,
+    required this.serviceType,
+    required this.location,
+  });
 
-  factory serviceProviders.fromJson(jsonData) {
-    return serviceProviders(
-       num: jsonData['phone_number'],
-        service_type: jsonData['service_type'],
-        userName: jsonData['username'],
-        location: jsonData['location']);
+  factory ServiceProvider.fromJson(Map<String, dynamic> jsonData) {
+    return ServiceProvider(
+      username: jsonData['username'],
+      phoneNumber: jsonData['phone_number'],
+      serviceType: jsonData['service_type'],
+      location: List<double>.from(jsonData['location']),
+    );
   }
-
-  
 }
-

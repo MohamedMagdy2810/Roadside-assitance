@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:roadside_assitance/classes/shared_preferences.dart';
 import 'package:roadside_assitance/constants.dart';
+import 'package:roadside_assitance/models/data_response_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:roadside_assitance/models/api_response_model.dart';
@@ -66,29 +67,30 @@ class auth {
 }
 
 class GetData {
-  Future<dynamic> getData(String token) async {
-    // Construct the request body as a JSON-encoded string
+  Future<response_model> getData(String token) async {
     final body = json.encode({
       'current_location': 'Point(31.72292729304304 31.35974833774494)',
       'radius': 5000
     });
-
-    // Make the HTTP POST request
     final response = await http.post(
       Uri.parse('https://geodjango-test-no-docker.onrender.com/api/get-all-nearby/'),
       headers: {
-        'Content-Type': 'application/json',  // Specify the content type
+        'Content-Type': 'application/json', 
         'Authorization': 'Token $token'
       },
-      body: body
+      body: body,
     );
 
-    // Print the response status code and body
-    print(response.statusCode);
     print(response.body);
-    print('token=>>>$token');
+    if (response.statusCode == 200) {
+      Map<String, dynamic> jsonData = jsonDecode(response.body);
 
-    // Return the response body
-    return json.decode(response.body);  // Decode the response body to a Dart object
+      response_model responseModel = response_model.fromJson(jsonData);
+
+      return responseModel;
+    } else {
+      print('Failed to load data: ${response.statusCode}');
+      throw Exception('Failed to load data');
+    }
   }
 }

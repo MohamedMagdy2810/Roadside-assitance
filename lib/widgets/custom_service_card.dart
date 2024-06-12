@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:roadside_assitance/classes/shared_preferences.dart';
 import 'package:roadside_assitance/constants.dart';
+import 'package:roadside_assitance/models/data_response_model.dart';
 import 'package:roadside_assitance/models/service_model.dart';
 import 'package:roadside_assitance/services/Api.dart';
 
@@ -89,8 +90,9 @@ showAlertDialog(BuildContext context) {
   );
   Widget continueButton = TextButton(
     child: Text("Yes", style: TextStyle(color: Colors.black)),
-    onPressed: () {
-      GetData().getData(token!);
+    onPressed: ()async {
+     response_model Response = await GetData().getData(token!);
+     
        Navigator.pop(context);
     },
   );

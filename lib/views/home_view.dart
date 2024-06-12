@@ -21,7 +21,7 @@ class homeView extends StatefulWidget {
 class _homeViewState extends State<homeView> {
   List<Widget> widgetsList = [
     // serviceModel ==null ? const homeViewBody() :
-    const homeViewBody(),
+     homeViewBody(),
     profileView(), const settingsView()
   ];
   int selectedIndex = 0;

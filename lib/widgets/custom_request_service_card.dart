@@ -109,7 +109,7 @@ class customRequestWidget extends StatelessWidget {
                         children: [
                           Icon(
                             FontAwesomeIcons.phone,
-                            color: Colors.blue,
+                            color: Color(0xffE68C3A),
                             size: 18,
                           ),
                           SizedBox(
