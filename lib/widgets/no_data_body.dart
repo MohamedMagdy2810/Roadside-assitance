@@ -51,10 +51,10 @@ class noData extends StatelessWidget {
               ),
             ),
             SizedBox(height: 16,),
-            Image.asset('assets/images/m.jpg',),
+            Image.asset('assets/images/no_data2.png',height: 100,),
             SizedBox(height: 16,),
-            Text('OOPS',style: TextStyle(color: Color(0xff275217),fontSize: 40,fontWeight: FontWeight.bold),),
-            Text('No requests yet',style: TextStyle(color: Color(0xff275217),fontSize: 40,fontWeight: FontWeight.bold),)
+            Text('No Data Yet',style: TextStyle(color:lightGreen,fontSize: 22,fontWeight: FontWeight.bold),),
+            // Text('No requests yet',style: TextStyle(color: Color(0xff275217),fontSize: 40,fontWeight: FontWeight.bold),)
             // customRequestWidget(response_model('Mohamed', 'Gas Station', 012, 012))
           ],
         )

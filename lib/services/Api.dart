@@ -38,6 +38,9 @@ class auth {
   }
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+
   Future<dynamic> signUp(BuildContext context, String email, password,
       password2, username, firstName, lastName) async {
     http.Response response = await http.post(
@@ -66,6 +69,11 @@ class auth {
   }
 }
 
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////
 class GetData {
   Future<response_model> getData(String token) async {
     final body = json.encode({
