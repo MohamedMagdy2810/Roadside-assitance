@@ -31,7 +31,7 @@ class _homeViewBodyState extends State<homeViewBody> {
             return noData();
           }else if(state is dataLoadedState){
             
-            return dataLoaded(responseModel: state.responseModel,);
+            return DataLoaded(responseModel: state.responseModel,);
           }else{
             return Text('oops there was an error');
           }
