@@ -52,7 +52,14 @@ class CustomPasswordField extends StatelessWidget {
           ),
         ),
             hintText: hintText,
+            label:Text(
+              hintText,
+              style:TextStyle(
+                color: Color(0xff2B5F1D),
+              ) ,
+              ) ,
             hintStyle:  TextStyle(color:lightGreen.withOpacity(.45),fontSize: 15),
+
             // labelText: hintText,
             // labelStyle:TextStyle(color:lightGreen.withOpacity(.45),fontSize: 15) ,
             

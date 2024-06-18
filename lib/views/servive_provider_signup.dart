@@ -64,9 +64,13 @@ class _service_provider_pageState extends State<service_provider_page> {
                   children: [
                     Expanded(
                       child: CustomTextField(
-                        height: 45,
                         onChanged: (data) {
                           frist_name_Provider = data;
+                          if (reg_provider_formKey.currentState!.validate()){
+                            return null;
+                            
+                          }
+                          
                         },
                         hintText: 'First Name',
                         keyboardType: TextInputType.text,
@@ -81,13 +85,16 @@ class _service_provider_pageState extends State<service_provider_page> {
                       ),
                     ),
                     SizedBox(
-                      width: 18,
+                      width: 20,
                     ),
                     Expanded(
                       child: CustomTextField(
-                        height: 45,
                         onChanged: (data) {
                           last_name_Provider = data;
+                          if (reg_provider_formKey.currentState!.validate()){
+                            return null;
+                          }
+                           
                         },
                         hintText: 'Last Name',
                         keyboardType: TextInputType.text,
@@ -104,30 +111,36 @@ class _service_provider_pageState extends State<service_provider_page> {
                   ],
                 ),
                 SizedBox(
-                  height: 16,
+                  height: 20,
                 ),
                 CustomTextField(
-                  height: 45,
                   onChanged: (data) {
                     user_Name_Provider = data;
+                    if (reg_provider_formKey.currentState!.validate()){
+                            return null;
+                            
+                          }
                   },
                   hintText: 'Enter your Username',
                   controller: username_provider,
                   validation: (value) {
                     user_Name_Provider = value.toString();
                     if (value == null || value.isEmpty) {
-                      return "Enter Your username";
+                      return "Please Enter Your Username";
                     }
                     return null;
                   },
                 ),
                 SizedBox(
-                  height: 16,
+                  height: 20,
                 ),
                 CustomTextField(
-                  height: 45,
                   onChanged: (data) {
                     email_Provider = data;
+                    if (reg_provider_formKey.currentState!.validate()){
+                            return null;
+                            
+                          }
                   },
                   hintText: 'Enter your Email',
                   keyboardType: TextInputType.emailAddress,
@@ -135,18 +148,21 @@ class _service_provider_pageState extends State<service_provider_page> {
                   validation: (value) {
                     email_Provider = value.toString();
                     if (value == null || value.isEmpty) {
-                      return "Enter Your Email";
+                      return "Please Enter Your Email";
                     }
                     return null;
                   },
                 ),
                 const SizedBox(
-                  height: 16,
+                  height: 20,
                 ),
                 CustomPasswordField(
-                  height: 45,
                   onChanged: (data) {
                     Password_Provider = data;
+                    if (reg_provider_formKey.currentState!.validate()){
+                            return null;
+                            
+                          }
                   },
                   isPassword: isTrue_P,
                   hintText: 'Password',
@@ -155,7 +171,6 @@ class _service_provider_pageState extends State<service_provider_page> {
                     if (value == null || value.isEmpty) {
                       return "please enter your Password";
                     }
-                    return null;
                   },
                   suffix: isTrue_P
                       ? FontAwesomeIcons.solidEyeSlash
@@ -175,9 +190,12 @@ class _service_provider_pageState extends State<service_provider_page> {
                   height: 16,
                 ),
                 CustomPasswordField(
-                  height: 45,
                   onChanged: (data) {
                     Password2_Provider = data;
+                    if (reg_provider_formKey.currentState!.validate()){
+                            return null;
+                            
+                          }
                   },
                   hintText: 'Retype Password',
                   isPassword: isTrue_two_P,
@@ -204,7 +222,7 @@ class _service_provider_pageState extends State<service_provider_page> {
 
                 ),
                 const SizedBox(
-                  height: 16,
+                  height: 20,
                 ),
                 custom_drop_down_menu(),
                 // CustomDropdown(),
@@ -252,7 +270,11 @@ class _service_provider_pageState extends State<service_provider_page> {
                       print("Validation is correct♥");
                     }
                   },
-                )
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
+
               ],
             ),
           ),

@@ -60,6 +60,9 @@ class _LogInPageState extends State<LogInPage> {
                       CustomTextField(
                         onChanged: (data) {
                           email = data!;
+                          if (log_FormKey.currentState!.validate()){
+                            return null;
+                          }
                         },
                         controller: user_email,
                         keyboardType: TextInputType.emailAddress,
@@ -77,6 +80,9 @@ class _LogInPageState extends State<LogInPage> {
                       CustomPasswordField(
                         onChanged: (data) {
                           password = data!;
+                          if (log_FormKey.currentState!.validate()){
+                            return null;
+                          }
                         },
                         isPassword: isTrue,
                         hintText: 'Password',
@@ -92,7 +98,7 @@ class _LogInPageState extends State<LogInPage> {
                             : FontAwesomeIcons.solidEye,
                         icon_colol: isTrue
                             ? lightGreen.withOpacity(.45)
-                            : lightGreen.withOpacity(.45),
+                            : Colors.blue.withOpacity(.45),
                         controller: passwordController_log,
                         suffixPressed: () {
                           setState(() {

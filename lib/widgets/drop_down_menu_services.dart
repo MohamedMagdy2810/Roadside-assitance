@@ -72,6 +72,7 @@ class _custom_drop_down_menuState extends State<custom_drop_down_menu> {
           child: Row(
             children: [
               Container(
+                height: 50,
                 width: 230,
                 padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
                 decoration: BoxDecoration(
@@ -91,7 +92,7 @@ class _custom_drop_down_menuState extends State<custom_drop_down_menu> {
                   ],
                 ),
               ),
-              SizedBox(width: 6,),
+              SizedBox(width: 10,),
               Container(
                 child: Center(child: Text('Add',style: TextStyle(fontSize: 18,color: Colors.white),)),
                 height: 40,

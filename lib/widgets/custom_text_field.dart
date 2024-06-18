@@ -36,6 +36,12 @@ class CustomTextField extends StatelessWidget {
         
         decoration: InputDecoration(
             hintText: hintText,
+            label:Text(
+              hintText,
+              style:TextStyle(
+                color: Color(0xff2B5F1D),
+              ) ,
+              ) ,
             // labelStyle: TextStyle(color:const Color(0xff2B5F1D).withOpacity(.45),fontSize: 15),
             // labelText: "${hintText}",
       
