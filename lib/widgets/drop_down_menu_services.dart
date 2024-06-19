@@ -1,29 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:roadside_assitance/constants.dart';
 
-// class custom_drop_down_menu extends StatelessWidget {
-//   const custom_drop_down_menu({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return const DropdownMenu(
-//       menuStyle: MenuStyle(
-        
-//       ),
-//         hintText: "Service type",
-//         width: 200,
-//         menuHeight: 200,
-//         dropdownMenuEntries: <DropdownMenuEntry>[
-//           DropdownMenuEntry(value: (), label: "Fuel station"),
-//           DropdownMenuEntry(value: (), label: "tire repair"),
-//           DropdownMenuEntry(value: (), label: "battery changing"),
-//           DropdownMenuEntry(value: (), label: "towing"),
-//           DropdownMenuEntry(value: (), label: "towing"),
-//           DropdownMenuEntry(value: (), label: "towing"),
-//           DropdownMenuEntry(value: (), label: "towing"),
-//         ]);
-//   }
-// }
 class custom_drop_down_menu extends StatefulWidget {
   @override
   _custom_drop_down_menuState createState() => _custom_drop_down_menuState();
@@ -92,7 +69,7 @@ class _custom_drop_down_menuState extends State<custom_drop_down_menu> {
                   ],
                 ),
               ),
-              SizedBox(width: 10,),
+              SizedBox(width: 8,),
               Container(
                 child: Center(child: Text('Add',style: TextStyle(fontSize: 18,color: Colors.white),)),
                 height: 40,

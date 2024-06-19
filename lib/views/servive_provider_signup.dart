@@ -1,8 +1,9 @@
-//  يوجد خبل داخل اليو اي , لازم اظبطه تاني 
+//  يوجد خبل داخل اليو اي , لازم اظبطه تاني
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:roadside_assitance/constants.dart';
 import 'package:roadside_assitance/services/Api.dart';
 import 'package:roadside_assitance/views/home_view.dart';
@@ -37,245 +38,250 @@ class _service_provider_pageState extends State<service_provider_page> {
   String? email_Provider;
   String? user_Name_Provider;
   String? Password_Provider, Password2_Provider;
-
 // ------------------------------------------------------
+  bool isLoading = false;
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: lightWhite,
-      body: Form(
-        key: reg_provider_formKey,
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.only(left: 28, right: 28, top: 60),
-            child: Column(
-              children: [
-                const Text(
-                  'Join Us!',
-                  style: TextStyle(
-                      color: Color(0xff275217),
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(
-                  height: 50,
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: CustomTextField(
-                        onChanged: (data) {
-                          frist_name_Provider = data;
-                          if (reg_provider_formKey.currentState!.validate()){
+    return ModalProgressHUD(
+      inAsyncCall: isLoading,
+      child: Scaffold(
+        backgroundColor: lightWhite,
+        body: Form(
+          key: reg_provider_formKey,
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 28, right: 28, top: 60),
+              child: Column(
+                children: [
+                  const Text(
+                    'Join Us!',
+                    style: TextStyle(
+                        color: Color(0xff275217),
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: CustomTextField(
+                          onChanged: (data) {
+                            frist_name_Provider = data;
+                            if (reg_provider_formKey.currentState!.validate()) {
+                              return null;
+                            }
+                          },
+                          hintText: 'First Name',
+                          keyboardType: TextInputType.text,
+                          controller: f_name_provider,
+                          validation: (value) {
+                            frist_name_Provider = value.toString();
+                            if (value == null || value.isEmpty) {
+                              return "Enter Your First Name";
+                            }
                             return null;
-                            
-                          }
-                          
-                        },
-                        hintText: 'First Name',
-                        keyboardType: TextInputType.text,
-                        controller: f_name_provider,
-                        validation: (value) {
-                          frist_name_Provider = value.toString();
-                          if (value == null || value.isEmpty) {
-                            return "Enter Your First Name";
-                          }
-                          return null;
-                        },
+                          },
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Expanded(
-                      child: CustomTextField(
-                        onChanged: (data) {
-                          last_name_Provider = data;
-                          if (reg_provider_formKey.currentState!.validate()){
-                            return null;
-                          }
-                           
-                        },
-                        hintText: 'Last Name',
-                        keyboardType: TextInputType.text,
-                        controller: l_name_provider,
-                        validation: (value) {
-                          last_name_Provider = value.toString();
-                          if (value == null || value.isEmpty) {
-                            return "Enter Your Last Name";
-                          }
-                          return null;
-                        },
+                      SizedBox(
+                        width: 20,
                       ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                CustomTextField(
-                  onChanged: (data) {
-                    user_Name_Provider = data;
-                    if (reg_provider_formKey.currentState!.validate()){
+                      Expanded(
+                        child: CustomTextField(
+                          onChanged: (data) {
+                            last_name_Provider = data;
+                            if (reg_provider_formKey.currentState!.validate()) {
+                              return null;
+                            }
+                          },
+                          hintText: 'Last Name',
+                          keyboardType: TextInputType.text,
+                          controller: l_name_provider,
+                          validation: (value) {
+                            last_name_Provider = value.toString();
+                            if (value == null || value.isEmpty) {
+                              return "Enter Your Last Name";
+                            }
                             return null;
-                            
-                          }
-                  },
-                  hintText: 'Enter your Username',
-                  controller: username_provider,
-                  validation: (value) {
-                    user_Name_Provider = value.toString();
-                    if (value == null || value.isEmpty) {
-                      return "Please Enter Your Username";
-                    }
-                    return null;
-                  },
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                CustomTextField(
-                  onChanged: (data) {
-                    email_Provider = data;
-                    if (reg_provider_formKey.currentState!.validate()){
-                            return null;
-                            
-                          }
-                  },
-                  hintText: 'Enter your Email',
-                  keyboardType: TextInputType.emailAddress,
-                  controller: user_email_provider,
-                  validation: (value) {
-                    email_Provider = value.toString();
-                    if (value == null || value.isEmpty) {
-                      return "Please Enter Your Email";
-                    }
-                    return null;
-                  },
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                CustomPasswordField(
-                  onChanged: (data) {
-                    Password_Provider = data;
-                    if (reg_provider_formKey.currentState!.validate()){
-                            return null;
-                            
-                          }
-                  },
-                  isPassword: isTrue_P,
-                  hintText: 'Password',
-                  validation: (value) {
-                    correctPassword_Provider = value;
-                    if (value == null || value.isEmpty) {
-                      return "please enter your Password";
-                    }
-                  },
-                  suffix: isTrue_P
-                      ? FontAwesomeIcons.solidEyeSlash
-                      : FontAwesomeIcons.solidEye,
-                  icon_colol: isTrue_P
-                      ? lightGreen.withOpacity(.45)
-                      : Colors.blue.withOpacity(.45),
-                  controller: passwordController_Provider_reg,
-                  suffixPressed: () {
-                    setState(() {
-                      isTrue_P = !isTrue_P;
-                    });
-                  },
-
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                CustomPasswordField(
-                  onChanged: (data) {
-                    Password2_Provider = data;
-                    if (reg_provider_formKey.currentState!.validate()){
-                            return null;
-                            
-                          }
-                  },
-                  hintText: 'Retype Password',
-                  isPassword: isTrue_two_P,
-                  validation: (value) {
-                    if (value == null || value.isEmpty) {
-                      return "please enter your Password";
-                    } else if (value != correctPassword_Provider) {
-                      return 'Password incorrect';
-                    }
-                    return null;
-                  },
-                  suffix: isTrue_two_P
-                      ? FontAwesomeIcons.solidEyeSlash
-                      : FontAwesomeIcons.solidEye,
-                  icon_colol: isTrue_two_P
-                      ? lightGreen.withOpacity(.45)
-                      : Colors.blue.withOpacity(.45),
-                  controller: passwordController_Provider_reg_two, // راجع تاني عشان في غلط في اللوجيك
-                  suffixPressed: () {
-                    setState(() {
-                      isTrue_two_P = !isTrue_two_P;
-                    });
-                  },
-
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                custom_drop_down_menu(),
-                // CustomDropdown(),
-                const SizedBox(
-                  height: 32,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      'Already have an account?',
-                      style: TextStyle(fontSize: 16),
-                    ),
-                    GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, LogInPage.Id);
-                        },
-                        child: const Text(
-                          'Sign in',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              decoration: TextDecoration.underline,
-                              fontSize: 16),
-                        )),
-                  ],
-                ),
-                const SizedBox(
-                  height: 32,
-                ),
-                const Row(
-                  children: [
-                    Text(
-                        'By registering, you accept our Terms & Conditions\nand Privacy Policy'),
-                  ],
-                ),
-                const SizedBox(
-                  height: 32,
-                ),
-                customButton(
-                  text: 'Sign up',
-                  onTap: () {
-                    if (reg_provider_formKey.currentState!.validate()) {
-                      // auth().signUp(context, email!, Password, Password2,
-                      //     user_Name, frist_name, last_name);
-                      print("Validation is correct♥");
-                    }
-                  },
-                ),
-                const SizedBox(
-                  height: 40,
-                ),
-
-              ],
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  CustomTextField(
+                    onChanged: (data) {
+                      user_Name_Provider = data;
+                      if (reg_provider_formKey.currentState!.validate()) {
+                        return null;
+                      }
+                    },
+                    hintText: 'Enter your Username',
+                    controller: username_provider,
+                    validation: (value) {
+                      user_Name_Provider = value.toString();
+                      if (value == null || value.isEmpty) {
+                        return "Please Enter Your Username";
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  CustomTextField(
+                    onChanged: (data) {
+                      email_Provider = data;
+                      if (reg_provider_formKey.currentState!.validate()) {
+                        return null;
+                      }
+                    },
+                    hintText: 'Enter your Email',
+                    keyboardType: TextInputType.emailAddress,
+                    controller: user_email_provider,
+                    validation: (value) {
+                      email_Provider = value.toString();
+                      if (value == null || value.isEmpty) {
+                        return "Please Enter Your Email";
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  CustomPasswordField(
+                    onChanged: (data) {
+                      Password_Provider = data;
+                      if (reg_provider_formKey.currentState!.validate()) {
+                        return null;
+                      }
+                    },
+                    isPassword: isTrue_P,
+                    hintText: 'Password',
+                    validation: (value) {
+                      correctPassword_Provider = value;
+                      if (value == null || value.isEmpty) {
+                        return "please enter your Password";
+                      }
+                    },
+                    suffix: isTrue_P
+                        ? FontAwesomeIcons.solidEyeSlash
+                        : FontAwesomeIcons.solidEye,
+                    icon_colol: isTrue_P
+                        ? lightGreen.withOpacity(.45)
+                        : Colors.blue.withOpacity(.45),
+                    controller: passwordController_Provider_reg,
+                    suffixPressed: () {
+                      setState(() {
+                        isTrue_P = !isTrue_P;
+                      });
+                    },
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  CustomPasswordField(
+                    onChanged: (data) {
+                      Password2_Provider = data;
+                      if (reg_provider_formKey.currentState!.validate()) {
+                        return null;
+                      }
+                    },
+                    hintText: 'Retype Password',
+                    isPassword: isTrue_two_P,
+                    validation: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "please enter your Password";
+                      } else if (value != correctPassword_Provider) {
+                        return 'Password incorrect';
+                      }
+                      return null;
+                    },
+                    suffix: isTrue_two_P
+                        ? FontAwesomeIcons.solidEyeSlash
+                        : FontAwesomeIcons.solidEye,
+                    icon_colol: isTrue_two_P
+                        ? lightGreen.withOpacity(.45)
+                        : Colors.blue.withOpacity(.45),
+                    controller:
+                        passwordController_Provider_reg_two, // راجع تاني عشان في غلط في اللوجيك
+                    suffixPressed: () {
+                      setState(() {
+                        isTrue_two_P = !isTrue_two_P;
+                      });
+                    },
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  custom_drop_down_menu(),
+                  // CustomDropdown(),
+                  const SizedBox(
+                    height: 32,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        'Already have an account?',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, LogInPage.Id);
+                          },
+                          child: const Text(
+                            'Sign in',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                decoration: TextDecoration.underline,
+                                fontSize: 16),
+                          )),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 32,
+                  ),
+                  const Row(
+                    children: [
+                      Text(
+                          'By registering, you accept our Terms & Conditions\nand Privacy Policy'),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 32,
+                  ),
+                  customButton(
+                    text: 'Sign up',
+                    onTap: () async{
+                      if (reg_provider_formKey.currentState!.validate()) {
+                        setState(() {
+                          isLoading = true;
+                        });
+                      await  auth().signUpServcieProvider(
+                            context,
+                            email_Provider!,
+                            Password_Provider,
+                            Password2_Provider,
+                            user_Name_Provider,
+                            frist_name_Provider,
+                            last_name_Provider);
+                        print("Validation is correct♥");
+                        isLoading = false;
+                      }
+                    },
+                  ),
+                  const SizedBox(
+                    height: 40,
+                  ),
+                ],
+              ),
             ),
           ),
         ),
