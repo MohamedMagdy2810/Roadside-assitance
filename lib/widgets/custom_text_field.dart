@@ -7,8 +7,7 @@ class CustomTextField extends StatelessWidget {
       {
         super.key, 
         required this.hintText, 
-        
-
+        this.error_style,
         this.onChanged,
         this.height =64,
         this.keyboardType,
@@ -18,6 +17,7 @@ class CustomTextField extends StatelessWidget {
   final String hintText;
   final double height;
   final int maxlines;
+  final TextStyle ?error_style ;
   Function(String?)? onChanged;
   String ? Function(String?)? validation;
   TextEditingController ? controller ;
@@ -35,6 +35,7 @@ class CustomTextField extends StatelessWidget {
         onChanged:onChanged ,
         
         decoration: InputDecoration(
+          errorStyle:error_style ,
             hintText: hintText,
             label:Text(
               hintText,

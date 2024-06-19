@@ -21,7 +21,9 @@ class CustomPasswordField extends StatelessWidget {
         this.icon_colol,
         this.controller,
         required this.isPassword,
+        this.error_style
         });
+  final TextStyle ?error_style ;
   final String hintText;
   final double height;
   Function(String?)? onChanged;
@@ -43,6 +45,7 @@ class CustomPasswordField extends StatelessWidget {
         onChanged: onChanged,
         controller: controller,
         decoration: InputDecoration(
+          errorStyle: error_style,
           suffixIcon:IconButton(
           onPressed: suffixPressed,
           icon: Icon(
