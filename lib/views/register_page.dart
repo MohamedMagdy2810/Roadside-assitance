@@ -247,13 +247,13 @@ String? frist_name;
                   ),
                   customButton(
                     text: 'Sign up',
-                    onTap: () {
+                    onTap: () async{
                       // // logIn(name!, password);
                       if (reg_FormKey.currentState!.validate()) {
                         setState(() {
                           isLoading=true;
                         });
-                        auth().signUp(context, email!, Password, Password2,
+                       await auth().signUp(context, email!, Password, Password2,
                             user_Name, frist_name, last_name);
                             setState(() {
                           isLoading=false;
