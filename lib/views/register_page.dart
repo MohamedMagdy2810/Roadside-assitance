@@ -74,9 +74,6 @@ String? frist_name;
                         child: CustomTextField(
                           onChanged: (data) {
                             frist_name = data;
-                            if (reg_FormKey.currentState!.validate()){
-                            return null;
-                          }
                           },
                           controller: f_name_person,
                           hintText: 'First Name',
@@ -97,9 +94,7 @@ String? frist_name;
                         child: CustomTextField(
                           onChanged: (data) {
                             last_name = data;
-                            if (reg_FormKey.currentState!.validate()){
-                            return null;
-                          }
+                             
                           },
                           controller: l_name_person,
                           hintText: 'Last Name',
@@ -121,9 +116,7 @@ String? frist_name;
                   CustomTextField(
                     onChanged: (data) {
                       user_Name = data;
-                      if (reg_FormKey.currentState!.validate()){
-                            return null;
-                          }
+                       
                     },
                     controller: username,
                     keyboardType: TextInputType.emailAddress,
@@ -142,9 +135,7 @@ String? frist_name;
                   CustomTextField(
                     onChanged: (data) {
                       email = data;
-                      if (reg_FormKey.currentState!.validate()){
-                            return null;
-                          }
+                       
                     },
                     controller: user_email,
                     keyboardType: TextInputType.emailAddress,
@@ -163,9 +154,7 @@ String? frist_name;
                   CustomPasswordField(
                     onChanged: (data) {
                       Password = data;
-                      if (reg_FormKey.currentState!.validate()){
-                            return null;
-                          }
+                       
                     },
                     isPassword: isTrue,
                     hintText: 'Password',
@@ -195,9 +184,7 @@ String? frist_name;
                   CustomPasswordField(
                     onChanged: (data) {
                       Password2 = data;
-                      if (reg_FormKey.currentState!.validate()){
-                            return null;
-                          }
+                       
                     },
                     isPassword: isTrue_two,
                     hintText: 'Retype Password',

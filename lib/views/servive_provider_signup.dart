@@ -66,10 +66,7 @@ class _service_provider_pageState extends State<service_provider_page> {
                       child: CustomTextField(
                         onChanged: (data) {
                           frist_name_Provider = data;
-                          if (reg_provider_formKey.currentState!.validate()){
-                            return null;
-                            
-                          }
+                          
                           
                         },
                         hintText: 'First Name',
@@ -91,10 +88,6 @@ class _service_provider_pageState extends State<service_provider_page> {
                       child: CustomTextField(
                         onChanged: (data) {
                           last_name_Provider = data;
-                          if (reg_provider_formKey.currentState!.validate()){
-                            return null;
-                          }
-                           
                         },
                         hintText: 'Last Name',
                         keyboardType: TextInputType.text,
@@ -116,10 +109,7 @@ class _service_provider_pageState extends State<service_provider_page> {
                 CustomTextField(
                   onChanged: (data) {
                     user_Name_Provider = data;
-                    if (reg_provider_formKey.currentState!.validate()){
-                            return null;
-                            
-                          }
+                    
                   },
                   hintText: 'Enter your Username',
                   controller: username_provider,
@@ -137,10 +127,7 @@ class _service_provider_pageState extends State<service_provider_page> {
                 CustomTextField(
                   onChanged: (data) {
                     email_Provider = data;
-                    if (reg_provider_formKey.currentState!.validate()){
-                            return null;
-                            
-                          }
+                    
                   },
                   hintText: 'Enter your Email',
                   keyboardType: TextInputType.emailAddress,
@@ -159,10 +146,7 @@ class _service_provider_pageState extends State<service_provider_page> {
                 CustomPasswordField(
                   onChanged: (data) {
                     Password_Provider = data;
-                    if (reg_provider_formKey.currentState!.validate()){
-                            return null;
-                            
-                          }
+                    
                   },
                   isPassword: isTrue_P,
                   hintText: 'Password',
@@ -192,10 +176,7 @@ class _service_provider_pageState extends State<service_provider_page> {
                 CustomPasswordField(
                   onChanged: (data) {
                     Password2_Provider = data;
-                    if (reg_provider_formKey.currentState!.validate()){
-                            return null;
-                            
-                          }
+                    
                   },
                   hintText: 'Retype Password',
                   isPassword: isTrue_two_P,
