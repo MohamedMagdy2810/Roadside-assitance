@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:roadside_assitance/classes/shared_preferences.dart';
 import 'package:roadside_assitance/constants.dart';
+import 'package:roadside_assitance/generated/l10n.dart';
 import 'package:roadside_assitance/models/service_model.dart';
 import 'package:roadside_assitance/views/register_page.dart';
 import 'package:roadside_assitance/views/services_page.dart';
@@ -22,7 +23,7 @@ class _homeViewState extends State<homeView> {
   List<Widget> widgetsList = [
     // serviceModel ==null ? const homeViewBody() :
      homeViewBody(),
-    profileView(), const settingsView()
+    profileView(), const SettingsView()
   ];
   int selectedIndex = 0;
   String? firstName;
@@ -87,18 +88,18 @@ class _homeViewState extends State<homeView> {
         });
       },
       selectedItemColor: KprimaryColor,
-      items: const <BottomNavigationBarItem>[
+      items:  <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
-          label: 'Home',
+          label: S.of(context).home,
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.person),
-          label: 'Profile',
+          label:  S.of(context).profile,
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.settings),
-          label: 'Settings',
+          label:  S.of(context).setting,
         ),
       ],
     );

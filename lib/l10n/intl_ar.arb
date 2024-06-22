@@ -1,0 +1,21 @@
+{
+    "log_out": "تسجيل خروج",
+    "setting":"الاعدادات",
+    "profile":"الصفحة",
+    "home":"الرئيسية",
+    "hello":"اهلا",
+    "Service":"مقدمين الخدمات",
+    "request":"طلب خدمة",
+    "noData":"لا يوجد بيانات ",
+   "nameProfile":"الاسم الكامل",
+    "usernameProfile":"اسم المستخدم",
+    "emailProfile":"الايميل",
+    "phoneProfile":"رقم الموبايل",
+    "passProfile":"تغير الرقم السري",
+    "saveProfile":"حفظ",
+    "enterName":"ادخل اسمك",
+    "enterUser":"ادخل اسم المستخدم",
+    "enterEmail":"ادخل الايميل",
+    "enterPhone":"ادخل رقم الموبايل",
+    "enterPass":"ادخل الرقم السري"
+}
