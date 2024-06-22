@@ -23,7 +23,7 @@ class _homeViewState extends State<homeView> {
   List<Widget> widgetsList = [
     // serviceModel ==null ? const homeViewBody() :
      homeViewBody(),
-    profileView(), const settingsView()
+    profileView(), const SettingsView()
   ];
   int selectedIndex = 0;
   String? firstName;
