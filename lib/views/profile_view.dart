@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:roadside_assitance/constants.dart';
+import 'package:roadside_assitance/generated/l10n.dart';
 import 'package:roadside_assitance/views/log_in_page.dart';
 import 'package:roadside_assitance/views/register_page.dart';
 import 'package:roadside_assitance/widgets/custom_button.dart';
@@ -39,11 +40,11 @@ class _profileViewState extends State<profileView> {
         child: Column(
               
           children: [
-           const SizedBox(height: 40,),
+           const SizedBox(height: 20,),
             Container(
               alignment:AlignmentDirectional.topStart,
-              child:const Text(
-                'Full Name',
+              child: Text(
+              S.of(context).nameProfile,
                 style: TextStyle(
                   fontSize: 20,
                   // fontWeight: FontWeight.bold
@@ -58,7 +59,7 @@ class _profileViewState extends State<profileView> {
                 color:  lightWhite,
               ),
               child: CustomTextField(
-                hintText: "Enter Your Name" ,
+                hintText: S.of(context).enterName ,
                 keyboardType: TextInputType.emailAddress,
                 controller: f_name_person ,
                 ),
@@ -67,8 +68,8 @@ class _profileViewState extends State<profileView> {
           // const  SizedBox(height: 30,),
             Container(
               alignment:AlignmentDirectional.topStart,
-              child:const Text(
-                'Username',
+              child: Text(
+                S.of(context).usernameProfile,
                 style: TextStyle(
                   fontSize: 20,
                   // fontWeight: FontWeight.bold
@@ -83,7 +84,7 @@ class _profileViewState extends State<profileView> {
                 color:  lightWhite,
               ),
               child: CustomTextField(
-                hintText: "Enter Your Username" ,
+                hintText: S.of(context).enterUser ,
                 keyboardType: TextInputType.emailAddress,
                 controller: username,
                 ),
@@ -92,8 +93,8 @@ class _profileViewState extends State<profileView> {
           const  SizedBox(height: 10,),
             Container(
               alignment:AlignmentDirectional.topStart,
-              child:const Text(
-                'Email',
+              child: Text(
+                S.of(context).emailProfile,
                 style: TextStyle(
                   fontSize: 20,
                   // fontWeight: FontWeight.bold
@@ -109,7 +110,7 @@ class _profileViewState extends State<profileView> {
                 color:  lightWhite,
               ),
               child: CustomTextField(
-                hintText: "Enter Your Email" ,
+                hintText: S.of(context).enterEmail,
                 keyboardType: TextInputType.emailAddress,
                 controller: user_email,
                 ),
@@ -118,8 +119,8 @@ class _profileViewState extends State<profileView> {
           //  const SizedBox(height: 30,),
             Container(
               alignment:AlignmentDirectional.topStart,
-              child:const Text(
-                'Phone Number',
+              child: Text(
+                S.of(context).phoneProfile,
                 style: TextStyle(
                   fontSize: 20,
                   // fontWeight: FontWeight.bold
@@ -135,7 +136,7 @@ class _profileViewState extends State<profileView> {
                 color:  lightWhite,
               ),
               child: CustomTextField(
-                hintText: "Enter Your Phone Number" ,
+                hintText:S.of(context).enterPhone ,
                 keyboardType: TextInputType.emailAddress,
                 controller:phone_num ,
                 ),
@@ -144,8 +145,8 @@ class _profileViewState extends State<profileView> {
           // const  SizedBox(height: 30,),
             Container(
               alignment:AlignmentDirectional.topStart,
-              child:const Text(
-                'Change Password',
+              child: Text(
+                S.of(context).passProfile,
                 style: TextStyle(
                   fontSize: 20,
                   // fontWeight: FontWeight.bold
@@ -161,7 +162,7 @@ class _profileViewState extends State<profileView> {
               ),
               child: CustomPasswordField(
                   isPassword: isTrue,
-                  hintText: 'Retype Password',
+                  hintText: S.of(context).enterPass,
                    suffix:isTrue ? FontAwesomeIcons.solidEyeSlash : FontAwesomeIcons.solidEye,
                   icon_colol:isTrue? lightGreen.withOpacity(.45) :Colors.lightBlue.withOpacity(.45),
                   controller: passwordController_log,
@@ -172,10 +173,10 @@ class _profileViewState extends State<profileView> {
                   }, 
                 ),
             ),
-            const  SizedBox(height: 30,),
+            const  SizedBox(height: 20,),
         //  const   SizedBox(height: 50,),
             customButton(
-              text: "Save",
+              text: S.of(context).saveProfile,
               font_size: 20,
               onTap: () {
                 setState(() {
