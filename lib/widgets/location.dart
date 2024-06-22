@@ -36,6 +36,7 @@ class _locationState extends State<location> {
       final Current_longitude = pos.longitude;
       print("Current_latitude : $Current_latitude");
       print("Current_longitude : $Current_longitude");
+      print("cdjkvhjkdch");
 
     }
   }

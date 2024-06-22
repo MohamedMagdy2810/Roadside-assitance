@@ -118,9 +118,13 @@ class _MapScreenState extends State<MapScreen> {
                 children: [
                   Expanded(
                     child: GoogleMap(
+                      indoorViewEnabled: true,
+                      buildingsEnabled: true,
+                      compassEnabled: true,
                       onTap: (LatLng latlan) {
                         setState(() {
                           _initialPosition = latlan;
+                          cxx = _initialPosition;
                           _markers.clear();
                           _markers.add(
                             Marker(
