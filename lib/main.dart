@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:roadside_assitance/generated/l10n.dart';
 import 'package:roadside_assitance/request_data_cubit/get_data_cubit.dart';
 import 'package:roadside_assitance/views/first_screen.dart';
 import 'package:roadside_assitance/views/home_view.dart';
@@ -24,6 +26,14 @@ class MyApp extends StatelessWidget {
     return  BlocProvider(
       create: (context) => getDataCubit(),
       child: MaterialApp(
+        locale: Locale('en'),
+        localizationsDelegates: [
+                S.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: S.delegate.supportedLocales,
         debugShowCheckedModeBanner: false,
          initialRoute: '/',
         routes: {

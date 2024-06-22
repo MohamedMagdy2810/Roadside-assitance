@@ -49,6 +49,86 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// `Log out`
+  String get log_out {
+    return Intl.message(
+      'Log out',
+      name: 'log_out',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get setting {
+    return Intl.message(
+      'Settings',
+      name: 'setting',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profile`
+  String get profile {
+    return Intl.message(
+      'Profile',
+      name: 'profile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `home`
+  String get home {
+    return Intl.message(
+      'home',
+      name: 'home',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `hi`
+  String get hello {
+    return Intl.message(
+      'hi',
+      name: 'hello',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Service providers`
+  String get Service {
+    return Intl.message(
+      'Service providers',
+      name: 'Service',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Request service`
+  String get request {
+    return Intl.message(
+      'Request service',
+      name: 'request',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No Data Yet`
+  String get noData {
+    return Intl.message(
+      'No Data Yet',
+      name: 'noData',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -57,6 +137,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'ar'),
     ];
   }
 

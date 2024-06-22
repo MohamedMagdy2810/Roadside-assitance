@@ -1,3 +1,10 @@
 {
-    
+    "log_out": "Log out",
+    "setting":"Settings",
+    "profile":"Profile",
+    "home":"home",
+    "hello":"hi",
+    "Service":"Service providers",
+    "request":"Request service",
+    "noData":"No Data Yet"
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:roadside_assitance/classes/shared_preferences.dart';
+import 'package:roadside_assitance/generated/l10n.dart';
 import 'package:roadside_assitance/views/log_in_page.dart';
 import 'package:roadside_assitance/widgets/custom_button.dart';
 
@@ -27,7 +28,7 @@ class settingsView extends StatelessWidget {
             ),
           SizedBox(height: 70,),
           customButton(
-            text: "Log Out",
+            text: S.of(context).log_out,
             font_size: 25,
             onTap: ()async{
             await  TokenManager.removeToken();
