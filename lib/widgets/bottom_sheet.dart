@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:roadside_assitance/constants.dart';
 import 'package:roadside_assitance/widgets/custom_button.dart';
 import 'package:roadside_assitance/widgets/custom_text_field.dart';
+import 'package:roadside_assitance/widgets/map.dart';
 
 class BottomSheetWidget extends StatefulWidget {
   const BottomSheetWidget({super.key});
@@ -14,6 +16,10 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
   TimeOfDay selectedTime = TimeOfDay.now();
   TextEditingController _timeController = TextEditingController();
   TextEditingController _dateController = TextEditingController();
+  var from_controller = TextEditingController();
+  var to_controller = TextEditingController();
+  final bottomSheet_formKey = GlobalKey<FormState>();
+
 
   @override
   void initState() {
@@ -64,86 +70,146 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-        right: 16.0,
-        left: 16,
-        bottom: MediaQuery.of(context).viewInsets.bottom
-      ),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 32,
-            ),
-           
-            CustomTextField(
-              hintText: 'From',
-              height: 45,
-            ),
-            SizedBox(
-              height: 16,
-            ),
-            CustomTextField(
-              hintText: 'To',
-              height: 45,
-            ),
-            SizedBox(
-              height: 16,
-            ),
-            Container(
-              height: 45,
-              child: TextFormField(
-                controller: _timeController,
-                readOnly: true,
-                onTap: () => _selectTime(context),
-                decoration: InputDecoration(
-                  hintText: selectedTime == null ? 'Select Time' : '',
-                  hintStyle: TextStyle(color: const Color(0xff2B5F1D).withOpacity(.45), fontSize: 15),
-                  enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: const BorderSide(color: KprimaryColor)),
-                  focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: const BorderSide(color: KprimaryColor)),
-                  border: const OutlineInputBorder(
-                      borderSide: BorderSide(color: KprimaryColor)),
-                  suffixIcon: Icon(Icons.access_time, color: Color(0xff2B5F1D).withOpacity(.45)),
+    
+    return Form(
+      key: bottomSheet_formKey,
+      child: Padding(
+        padding: EdgeInsets.only(
+          right: 16.0,
+          left: 16,
+          bottom: MediaQuery.of(context).viewInsets.bottom
+        ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 32,
+              ),
+             
+              CustomTextField(
+                on_Tap: () {
+                  setState(() {
+                    from_controller.text = cxx.toString() ; 
+                    Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MapScreen(),
+                  ),
+                 
+              );
+                  });
+                 
+                },
+                hintText: 'From',
+                controller:from_controller ,
+                height: 45,
+                validation: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "please Enter Location";
+                        }
+                        return null;
+                      },
+              ),
+              SizedBox(
+                height: 16,
+              ),
+              CustomTextField(
+                on_Tap: () {
+                  setState(() {
+                    to_controller.text = cxx.toString() ; 
+                    Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MapScreen(),
+                  ),
+                 
+              );
+                  });
+                 
+                },
+                hintText: 'To',
+                controller: to_controller,
+                height: 45,
+                validation: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Please Enter Location";
+                        }
+                        return null;
+                      },
+              ),
+              SizedBox(
+                height: 16,
+              ),
+              Container(
+                height: 45,
+                child: TextFormField(
+                  validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "please Choose Time";
+                        }
+                        return null;
+                      },
+                  controller: _timeController,
+                  readOnly: true,
+                  onTap: () => _selectTime(context),
+                  decoration: InputDecoration(
+                    hintText: selectedTime == null ? 'Select Time' : '',
+                    hintStyle: TextStyle(color: const Color(0xff2B5F1D).withOpacity(.45), fontSize: 15),
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: const BorderSide(color: KprimaryColor)),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: const BorderSide(color: KprimaryColor)),
+                    border: const OutlineInputBorder(
+                        borderSide: BorderSide(color: KprimaryColor)),
+                    suffixIcon: Icon(Icons.access_time, color: Color(0xff2B5F1D).withOpacity(.45)),
+                  ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 16,
-            ),
-            Container(
-              height: 45,
-              child: TextFormField(
-                controller: _dateController,
-                readOnly: true,
-                onTap: () => _selectDate(context),
-                decoration: InputDecoration(
-                  hintText: 'Select Date',
-                  hintStyle: TextStyle(color: const Color(0xff2B5F1D).withOpacity(.45), fontSize: 15),
-                  enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: const BorderSide(color: KprimaryColor)),
-                  focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: const BorderSide(color: KprimaryColor)),
-                  border: const OutlineInputBorder(
-                      borderSide: BorderSide(color: KprimaryColor)),
-                  suffixIcon: Icon(Icons.calendar_today, color: Color(0xff2B5F1D).withOpacity(.45)),
+              SizedBox(
+                height: 16,
+              ),
+              Container(
+                height: 45,
+                child: TextFormField(
+                  validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Please Choose Data";
+                        }
+                        return null;
+                      },
+                  controller: _dateController,
+                  readOnly: true,
+                  onTap: () => _selectDate(context),
+                  decoration: InputDecoration(
+                    hintText: 'Select Date',
+                    hintStyle: TextStyle(color: const Color(0xff2B5F1D).withOpacity(.45), fontSize: 15),
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: const BorderSide(color: KprimaryColor)),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: const BorderSide(color: KprimaryColor)),
+                    border: const OutlineInputBorder(
+                        borderSide: BorderSide(color: KprimaryColor)),
+                    suffixIcon: Icon(Icons.calendar_today, color: Color(0xff2B5F1D).withOpacity(.45)),
+                  ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 16,
-            ),
-            customButton(text: 'Send request'),
-            const SizedBox(
-              height: 40,
-            ),
-          ],
+              SizedBox(
+                height: 16,
+              ),
+              customButton(
+                onTap: () {
+                  if (bottomSheet_formKey.currentState!.validate()) {}
+                },
+                text: 'Send request'),
+              const SizedBox(
+                height: 40,
+              ),
+            ],
+          ),
         ),
       ),
     );

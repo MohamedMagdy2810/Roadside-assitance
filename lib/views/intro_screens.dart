@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:roadside_assitance/request_data_cubit/get_data_states.dart';
 import 'package:roadside_assitance/views/first_screen.dart';
+import 'package:roadside_assitance/widgets/map.dart';
 
 class introScreens extends StatelessWidget {
   static String ID = 'introScreen';
   @override
   Widget build(BuildContext context) {
+    
     return IntroductionScreen(
+      
       pages: [
         PageViewModel(
           title: "We Here For You",

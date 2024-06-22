@@ -13,6 +13,8 @@ import 'package:roadside_assitance/widgets/custom_button.dart';
 import 'package:roadside_assitance/widgets/custom_password_field.dart';
 import 'package:roadside_assitance/widgets/custom_text_field.dart';
 import 'package:roadside_assitance/widgets/drop_down_menu_services.dart';
+import 'package:roadside_assitance/widgets/location.dart';
+import 'package:roadside_assitance/widgets/map.dart';
 
 class service_provider_page extends StatefulWidget {
   const service_provider_page({super.key});
@@ -242,6 +244,8 @@ class _service_provider_pageState extends State<service_provider_page> {
                     height: 16,
                   ),
                   custom_drop_down_menu(),
+                  SizedBox(height: 16,),
+                  location(),
                   // CustomDropdown(),
                   const SizedBox(
                     height: 32,
