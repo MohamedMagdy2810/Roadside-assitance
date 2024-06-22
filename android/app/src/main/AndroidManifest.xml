@@ -1,4 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
     package="url_launcher: ^6.2.6">
 
     <!-- Add INTERNET permission -->
@@ -34,5 +35,12 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyC68KR7uVBwWq0dPmIOzAJPgLBl6tWWD3s"/>
+            <!-- android:value="AIzaSyCuTilAfnGfkZtIx0T3qf-eOmWZ_N2LpoY"/> -->
+
     </application>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 </manifest>

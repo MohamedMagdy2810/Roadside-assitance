@@ -15,7 +15,7 @@ class _custom_drop_down_menuState extends State<custom_drop_down_menu> {
     'towing',
     'car mechanic'
   ];
-
+  
   void _showMultiSelectDialog(BuildContext context) async {
     final selectedServices = await showDialog<List<String>>(
       context: context,
@@ -48,6 +48,7 @@ class _custom_drop_down_menuState extends State<custom_drop_down_menu> {
           },
           child: Row(
             children: [
+              
               Container(
                 height: 50,
                 width: 230,
@@ -107,12 +108,16 @@ class __MultiSelectDialogState extends State<_MultiSelectDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      
       backgroundColor: Colors.white,
       title: Text('Select Services',style: TextStyle(color:const Color(0xff2B5F1D).withOpacity(.45),fontSize: 15),),
       content: SingleChildScrollView(
         child: ListBody(
+          
           children: widget.items.map((item) {
+            
             return CheckboxListTile(
+              
               
               activeColor: Colors.white,
               checkColor: KprimaryColor,

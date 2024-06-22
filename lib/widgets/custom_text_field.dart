@@ -9,16 +9,19 @@ class CustomTextField extends StatelessWidget {
         required this.hintText, 
         this.error_style,
         this.onChanged,
+        this.on_Tap,
         this.height =64,
         this.keyboardType,
         this.validation,  this.maxlines =1,
           this.controller
+          
         });
   final String hintText;
   final double height;
   final int maxlines;
   final TextStyle ?error_style ;
   Function(String?)? onChanged;
+  Function() ? on_Tap;
   String ? Function(String?)? validation;
   TextEditingController ? controller ;
   TextInputType ?keyboardType ;
@@ -27,7 +30,7 @@ class CustomTextField extends StatelessWidget {
     return Container(
       height: height,
       child: TextFormField(
-        
+        onTap:on_Tap,
         maxLines: maxlines,
         validator:validation ,
         keyboardType:keyboardType ,
