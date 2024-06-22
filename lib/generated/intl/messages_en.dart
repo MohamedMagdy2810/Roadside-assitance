@@ -23,12 +23,26 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "Service": MessageLookupByLibrary.simpleMessage("Service providers"),
+        "emailProfile": MessageLookupByLibrary.simpleMessage("Email"),
+        "enterEmail": MessageLookupByLibrary.simpleMessage("Enter your email"),
+        "enterName": MessageLookupByLibrary.simpleMessage("Enter your name"),
+        "enterPass":
+            MessageLookupByLibrary.simpleMessage("Enter your password"),
+        "enterPhone":
+            MessageLookupByLibrary.simpleMessage("Enter your Phone number"),
+        "enterUser":
+            MessageLookupByLibrary.simpleMessage("Enter your username"),
         "hello": MessageLookupByLibrary.simpleMessage("hi"),
         "home": MessageLookupByLibrary.simpleMessage("home"),
         "log_out": MessageLookupByLibrary.simpleMessage("Log out"),
+        "nameProfile": MessageLookupByLibrary.simpleMessage("Full Name"),
         "noData": MessageLookupByLibrary.simpleMessage("No Data Yet"),
+        "passProfile": MessageLookupByLibrary.simpleMessage("Change Password"),
+        "phoneProfile": MessageLookupByLibrary.simpleMessage("Phone Number"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "request": MessageLookupByLibrary.simpleMessage("Request service"),
-        "setting": MessageLookupByLibrary.simpleMessage("Settings")
+        "saveProfile": MessageLookupByLibrary.simpleMessage("Save"),
+        "setting": MessageLookupByLibrary.simpleMessage("Settings"),
+        "usernameProfile": MessageLookupByLibrary.simpleMessage("username")
       };
 }

@@ -129,6 +129,116 @@ class S {
       args: [],
     );
   }
+
+  /// `Full Name`
+  String get nameProfile {
+    return Intl.message(
+      'Full Name',
+      name: 'nameProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `username`
+  String get usernameProfile {
+    return Intl.message(
+      'username',
+      name: 'usernameProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get emailProfile {
+    return Intl.message(
+      'Email',
+      name: 'emailProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone Number`
+  String get phoneProfile {
+    return Intl.message(
+      'Phone Number',
+      name: 'phoneProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change Password`
+  String get passProfile {
+    return Intl.message(
+      'Change Password',
+      name: 'passProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save`
+  String get saveProfile {
+    return Intl.message(
+      'Save',
+      name: 'saveProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your name`
+  String get enterName {
+    return Intl.message(
+      'Enter your name',
+      name: 'enterName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your username`
+  String get enterUser {
+    return Intl.message(
+      'Enter your username',
+      name: 'enterUser',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your email`
+  String get enterEmail {
+    return Intl.message(
+      'Enter your email',
+      name: 'enterEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your Phone number`
+  String get enterPhone {
+    return Intl.message(
+      'Enter your Phone number',
+      name: 'enterPhone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your password`
+  String get enterPass {
+    return Intl.message(
+      'Enter your password',
+      name: 'enterPass',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

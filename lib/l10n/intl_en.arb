@@ -6,5 +6,16 @@
     "hello":"hi",
     "Service":"Service providers",
     "request":"Request service",
-    "noData":"No Data Yet"
+    "noData":"No Data Yet",
+    "nameProfile":"Full Name",
+    "usernameProfile":"username",
+    "emailProfile":"Email",
+    "phoneProfile":"Phone Number",
+    "passProfile":"Change Password",
+    "saveProfile":"Save",
+    "enterName":"Enter your name",
+    "enterUser":"Enter your username",
+    "enterEmail":"Enter your email",
+    "enterPhone":"Enter your Phone number",
+    "enterPass":"Enter your password"
 }

@@ -23,12 +23,23 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "Service": MessageLookupByLibrary.simpleMessage("مقدمين الخدمات"),
+        "emailProfile": MessageLookupByLibrary.simpleMessage("الايميل"),
+        "enterEmail": MessageLookupByLibrary.simpleMessage("ادخل الايميل"),
+        "enterName": MessageLookupByLibrary.simpleMessage("ادخل اسمك"),
+        "enterPass": MessageLookupByLibrary.simpleMessage("ادخل الرقم السري"),
+        "enterPhone": MessageLookupByLibrary.simpleMessage("ادخل رقم الموبايل"),
+        "enterUser": MessageLookupByLibrary.simpleMessage("ادخل اسم المستخدم"),
         "hello": MessageLookupByLibrary.simpleMessage("اهلا"),
         "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "log_out": MessageLookupByLibrary.simpleMessage("تسجيل خروج"),
+        "nameProfile": MessageLookupByLibrary.simpleMessage("الاسم الكامل"),
         "noData": MessageLookupByLibrary.simpleMessage("لا يوجد بيانات "),
+        "passProfile": MessageLookupByLibrary.simpleMessage("تغير الرقم السري"),
+        "phoneProfile": MessageLookupByLibrary.simpleMessage("رقم الموبايل"),
         "profile": MessageLookupByLibrary.simpleMessage("الصفحة"),
         "request": MessageLookupByLibrary.simpleMessage("طلب خدمة"),
-        "setting": MessageLookupByLibrary.simpleMessage("الاعدادات")
+        "saveProfile": MessageLookupByLibrary.simpleMessage("حفظ"),
+        "setting": MessageLookupByLibrary.simpleMessage("الاعدادات"),
+        "usernameProfile": MessageLookupByLibrary.simpleMessage("اسم المستخدم")
       };
 }
