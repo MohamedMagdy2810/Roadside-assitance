@@ -50,7 +50,7 @@ class _custom_drop_down_menuState extends State<custom_drop_down_menu> {
             children: [
               
               Container(
-                height: 50,
+                height: 45,
                 width: 230,
                 padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
                 decoration: BoxDecoration(
@@ -64,7 +64,7 @@ class _custom_drop_down_menuState extends State<custom_drop_down_menu> {
                       _selectedServices.isEmpty
                           ? 'Select services'
                           : _selectedServices.join(', '),
-                      style: TextStyle(color:const Color(0xff2B5F1D).withOpacity(.45),fontSize: 16,fontWeight: FontWeight.w500),
+                      style: TextStyle(color: Color(0xff2B5F1D),fontSize: 16,fontWeight: FontWeight.w500),
                     ),
                     Icon(Icons.arrow_drop_down,color: KprimaryColor,size: 24,),
                   ],

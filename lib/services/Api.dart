@@ -102,17 +102,46 @@ class auth {
 
 
 
-  Future<dynamic> phoneAuth(int number) async {
+  Future<dynamic> phoneAuth(int number , String token) async {
+    final body = json.encode({
+      'phone_number': '+20$number',
+      
+    });
     http.Response response = await http.post(
         Uri.parse(
-          'https://geodjango-test-no-docker.onrender.com/api/login/',
+          'https://geodjango-test-no-docker.onrender.com/api/request-phone-verification/',
         ),
-        body: {
-          'number': number,
-          
-        });
+        body: body
+        ,
+        headers: {
+        'Content-Type': 'application/json', 
+        'Authorization': 'Token $token'
+      },);
+        print(response.body);
+        print(response.statusCode);
 }
 
+
+
+
+  Future<dynamic> otpAuth(int number , String token) async {
+    final body = json.encode({
+      'phone_number': '+20$number',
+      
+    });
+    http.Response response = await http.post(
+        Uri.parse(
+          'https://geodjango-test-no-docker.onrender.com/api/request-phone-verification/',
+        ),
+        body: body
+        ,
+        headers: {
+        'Content-Type': 'application/json', 
+        'Authorization': 'Token $token'
+      },);
+        print(response.body);
+        print(response.statusCode);
+}
 }
 
 

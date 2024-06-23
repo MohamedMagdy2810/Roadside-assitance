@@ -151,7 +151,7 @@ class CustomRequestWidget extends StatelessWidget {
   }
 
   void _launchWhatsApp(String number) async {
-    var whatsappUrl = "whatsapp://send?phone=$number";
+    var whatsappUrl = "whatsapp://send?phone=+20$number";
     if (await canLaunchUrl(Uri.parse(whatsappUrl))) {
       await launchUrl(Uri.parse(whatsappUrl));
     } else {

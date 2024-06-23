@@ -49,9 +49,9 @@ class _locationState extends State<location> {
             onPressed: () {
               getCurrentLocation();
             },
-            icon: Icon(Icons.my_location),
+            icon: Icon(Icons.my_location,color: Color(0xff224C17)),
             label: Text(
-              'Get Current Location '),
+              'Get Current Location ,',style: TextStyle(color: Color(0xff224C17)),),
           ),
         ),
         Expanded(
@@ -64,8 +64,8 @@ class _locationState extends State<location> {
                   ),
               );
             },
-            icon: Icon(Icons.location_on),
-            label: Text('Select on Map'),
+            icon: Icon(Icons.location_on,color: Color(0xff224C17)),
+            label: Text('Select on Map',style:  TextStyle(color: Color(0xff224C17)),),
           ),
         ),
       ],
