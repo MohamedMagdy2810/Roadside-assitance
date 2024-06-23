@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:roadside_assitance/classes/shared_preferences.dart';
 import 'package:roadside_assitance/constants.dart';
 import 'package:roadside_assitance/generated/l10n.dart';
@@ -11,9 +12,14 @@ import 'package:roadside_assitance/views/profile_view.dart';
 import 'package:roadside_assitance/views/sttings_view.dart';
 import 'package:roadside_assitance/widgets/no_data_body.dart';
 
+// Future<Position> user_location =  Geolocator.getCurrentPosition();
+double ?user_lati ;
+double ?user_long ;
 class homeView extends StatefulWidget {
   const homeView({super.key});
   static String Id = 'homePage';
+  
+  
 
   @override
   State<homeView> createState() => _homeViewState();
@@ -27,13 +33,49 @@ class _homeViewState extends State<homeView> {
   ];
   int selectedIndex = 0;
   String? firstName;
+  double ?user_lati ;
+  double ?user_long ;
+  
+
+  
 
   @override
   void initState() {
     super.initState();
     _loadFirstName();
+    // getCurrentLocation();
+  
+    
   }
+  // getCurrentLocation() async {
+  //   bool serviceEnabled;
+  //   LocationPermission permission;
+  //   serviceEnabled = await Geolocator.isLocationServiceEnabled();
+  //   if (!serviceEnabled) {
+  //     print('Location services are disabled.');
+  //   }
+  //   permission = await Geolocator.checkPermission();
 
+  //   if (permission == LocationPermission.denied) {
+  //     permission = await Geolocator.requestPermission();
+  //     if (permission == LocationPermission.denied) {
+  //       print('Location permissions are denied');
+  //     }
+  //   }
+  //   if (permission == LocationPermission.deniedForever) {
+  //     return Future.error(
+  //         'Location permissions are permanently denied, we cannot request permissions.');
+  //   }
+
+  //   if (permission == LocationPermission.whileInUse) {
+  //    Position pos = await Geolocator.getCurrentPosition();
+  //    user_lati = pos.altitude;
+  //    user_long = pos.longitude;
+  //     print("Current_latitude : ${user_lati}");
+  //     print("Current_longitude : ${user_long}");
+
+  //   }
+  // }
   Future<void> _loadFirstName() async {
     final name = await userManager.getName();
     setState(() {
@@ -85,6 +127,8 @@ class _homeViewState extends State<homeView> {
       onTap: (index) {
         setState(() {
           selectedIndex = index;
+          print(user_lati);
+          print(user_long);
         });
       },
       selectedItemColor: KprimaryColor,

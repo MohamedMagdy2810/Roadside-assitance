@@ -102,6 +102,7 @@ class _MapScreenState extends State<MapScreen> {
       setState(() {
         _initialPosition = LatLng(Current_latitude, Current_longitude);
         is_loading = false;
+        
       });
     }
   }
