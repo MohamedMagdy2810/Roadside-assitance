@@ -7,6 +7,7 @@ import 'package:roadside_assitance/services/Api.dart';
 import 'package:roadside_assitance/views/home_view.dart';
 import 'package:roadside_assitance/constants.dart';
 import 'package:roadside_assitance/views/log_in_page.dart';
+import 'package:roadside_assitance/views/phone_auth_view.dart';
 import 'package:roadside_assitance/views/profile_view.dart';
 import 'package:roadside_assitance/widgets/custom_button.dart';
 
@@ -248,17 +249,18 @@ String? frist_name;
                   customButton(
                     text: 'Sign up',
                     onTap: () async{
+                      Navigator.pushNamed(context, PhoneAuthView.Id);
                       // // logIn(name!, password);
-                      if (reg_FormKey.currentState!.validate()) {
-                        setState(() {
-                          isLoading=true;
-                        });
-                       await auth().signUp(context, email!, Password, Password2,
-                            user_Name, frist_name, last_name);
-                            setState(() {
-                          isLoading=false;
-                        });
-                      }
+                      // if (reg_FormKey.currentState!.validate()) {
+                      //   setState(() {
+                      //     isLoading=true;
+                      //   });
+                      //  await auth().signUp(context, email!, Password, Password2,
+                      //       user_Name, frist_name, last_name);
+                      //       setState(() {
+                      //     isLoading=false;
+                      //   });
+                      // }
                     },
                   )
                 ],

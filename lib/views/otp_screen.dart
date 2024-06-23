@@ -2,8 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:roadside_assitance/widgets/custom_button.dart';
 
-class otp_screen extends StatelessWidget {
-  const otp_screen({
+class otpScreen extends StatelessWidget {
+  static String Id = 'otpView';
+  const otpScreen({
     super.key,
   });
 
@@ -17,10 +18,10 @@ class otp_screen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
            const SizedBox(
-              height: 80,
+              height: 32,
             ),
           const  Text(
-              'Enter the otp sent at 01279514236',
+              'Enter the otp',
               style: TextStyle(
                   color: Color(0xff27541C),
                   fontSize: 16,

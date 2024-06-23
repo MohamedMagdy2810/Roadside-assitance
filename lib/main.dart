@@ -8,6 +8,8 @@ import 'package:roadside_assitance/views/first_screen.dart';
 import 'package:roadside_assitance/views/home_view.dart';
 import 'package:roadside_assitance/views/intro_screens.dart';
 import 'package:roadside_assitance/views/log_in_page.dart';
+import 'package:roadside_assitance/views/otp_screen.dart';
+import 'package:roadside_assitance/views/phone_auth_view.dart';
 import 'package:roadside_assitance/views/register_page.dart';
 import 'package:roadside_assitance/views/services_page.dart';
 import 'package:roadside_assitance/views/servive_provider_signup.dart';
@@ -49,7 +51,10 @@ class MyApp extends StatelessWidget {
                 introScreens.ID: (context) => introScreens(),
                 LogInPage.Id: (context) => const LogInPage(),
                 homeView.Id: (context) => const homeView(),
+                otpScreen.Id: (context) => const otpScreen(),
+
                 ServivesView.ID: (context) => ServivesView(),
+                PhoneAuthView.Id: (context) => PhoneAuthView(),
                 service_provider_page.ID: (context) => service_provider_page(),
               },
             ),

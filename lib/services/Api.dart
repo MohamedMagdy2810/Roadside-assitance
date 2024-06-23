@@ -26,6 +26,8 @@ class auth {
           api_response_model_login.fromJson(jsonResponse);
       await TokenManager.saveToken(responseModel.token);
       await userManager.saveName(responseModel.user.f_name);
+      await userManager.saveEmail(responseModel.user.email);
+      await userManager.saveUsername(responseModel.user.userName);
       navigateIfSuccessful(context, response.statusCode);
     }
   }
@@ -97,9 +99,21 @@ class auth {
     print(' status code is ===> ${response.statusCode}');
     print(response.body);
   }
+
+
+
+  Future<dynamic> phoneAuth(int number) async {
+    http.Response response = await http.post(
+        Uri.parse(
+          'https://geodjango-test-no-docker.onrender.com/api/login/',
+        ),
+        body: {
+          'number': number,
+          
+        });
 }
 
-  
+}
 
 
 

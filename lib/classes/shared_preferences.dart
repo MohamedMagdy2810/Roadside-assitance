@@ -33,4 +33,32 @@ class userManager {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove('fname');
   }
+  static Future<void> saveUsername(String username) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('username', username);
+  }
+
+  static Future<String?> getUsername() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString('username');
+  }
+
+  static Future<void> removeUsername() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove('username');
+  }
+  static Future<void> saveEmail(String email) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('email', email);
+  }
+
+  static Future<String?> getEmail() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString('email');
+  }
+
+  static Future<void> removeEmail() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove('email');
+  }
 }
