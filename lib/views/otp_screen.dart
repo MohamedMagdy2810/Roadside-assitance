@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:roadside_assitance/views/home_view.dart';
 import 'package:roadside_assitance/widgets/custom_button.dart';
 
 class otpScreen extends StatelessWidget {
@@ -68,7 +69,11 @@ class otpScreen extends StatelessWidget {
             ),const SizedBox(
               height: 32,
             ),
-            customButton(text: 'confirm',font_size: 16,)
+            customButton(text: 'confirm',font_size: 16,
+          onTap: (){
+             Navigator.pushNamed(context, homeView.Id);
+          },  
+          )
           ],
         ),
       ),

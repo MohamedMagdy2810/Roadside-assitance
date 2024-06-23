@@ -249,18 +249,18 @@ String? frist_name;
                   customButton(
                     text: 'Sign up',
                     onTap: () async{
-                      Navigator.pushNamed(context, PhoneAuthView.Id);
-                      // // logIn(name!, password);
-                      // if (reg_FormKey.currentState!.validate()) {
-                      //   setState(() {
-                      //     isLoading=true;
-                      //   });
-                      //  await auth().signUp(context, email!, Password, Password2,
-                      //       user_Name, frist_name, last_name);
-                      //       setState(() {
-                      //     isLoading=false;
-                      //   });
-                      // }
+                      // Navigator.pushNamed(context, PhoneAuthView.Id);
+                      // logIn(name!, password);
+                      if (reg_FormKey.currentState!.validate()) {
+                        setState(() {
+                          isLoading=true;
+                        });
+                       await auth().signUp(context, email!, Password, Password2,
+                            user_Name, frist_name, last_name);
+                            setState(() {
+                          isLoading=false;
+                        });
+                      }
                     },
                   )
                 ],
