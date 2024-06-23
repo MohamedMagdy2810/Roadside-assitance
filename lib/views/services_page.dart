@@ -150,7 +150,7 @@ class ServivesView extends StatelessWidget {
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.only(right: 90.0,left: 24),
-              child: CustomTextField(hintText: '+ enter service type'),
+              child: CustomTextField(hintText: '+ Enter service type'),
             ),
           ),
         ],

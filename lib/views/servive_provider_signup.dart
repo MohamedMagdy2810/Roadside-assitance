@@ -248,7 +248,7 @@ class _service_provider_pageState extends State<service_provider_page> {
                   location(),
                   // CustomDropdown(),
                   const SizedBox(
-                    height: 32,
+                    height: 16,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
