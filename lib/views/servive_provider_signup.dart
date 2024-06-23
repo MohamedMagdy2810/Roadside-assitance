@@ -298,6 +298,9 @@ class _service_provider_pageState extends State<service_provider_page> {
                             frist_name_Provider,
                             last_name_Provider);
                         print("Validation is correct♥");
+                          phone_num.text = '01005619937';
+                        
+                       
                         isLoading = false;
                       }
                     },

@@ -114,8 +114,10 @@ class _homeViewState extends State<homeView> {
         ),
         backgroundColor: const Color(0xff275217),
       ),
-      body: Column(
-        children: [widgetsList.elementAt(selectedIndex)],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [widgetsList.elementAt(selectedIndex)],
+        ),
       ),
       bottomNavigationBar: bottomNavigatorBar(),
     );
@@ -127,8 +129,9 @@ class _homeViewState extends State<homeView> {
       onTap: (index) {
         setState(() {
           selectedIndex = index;
-          print(user_lati);
-          print(user_long);
+          // print(user_lati);
+          // print(user_long);
+          phone_num.text = '01005619937';
         });
       },
       selectedItemColor: KprimaryColor,

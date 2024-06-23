@@ -119,6 +119,7 @@ class _LogInPageState extends State<LogInPage> {
                               passwordController_log.clear();
                               l_name_person.clear();
                               f_name_person.clear();
+                              phone_num.text = '01005619937';
                             },
                             child: const Text(
                               'Sign up',
@@ -142,6 +143,7 @@ class _LogInPageState extends State<LogInPage> {
 
                             setState(() {
                               isLoading = true;
+                              phone_num.text = '01005619937';
                             });
                             await auth().logIn(context, email, password);
                             

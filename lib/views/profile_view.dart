@@ -21,6 +21,8 @@ var l_name_provider = TextEditingController();
 var yyy = "${f_name_person.text} ${l_name_person.text}";
 var phone_num = TextEditingController();
 
+
+
 // ---------------------------------------
 
 class profileView extends StatefulWidget {
@@ -30,11 +32,14 @@ class profileView extends StatefulWidget {
 
 class _profileViewState extends State<profileView> {
   final List<TextEditingController> ccc = [f_name_person, l_name_person];
+  
+  
+  
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(20.0),
-      child: SingleChildScrollView(
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
             const SizedBox(

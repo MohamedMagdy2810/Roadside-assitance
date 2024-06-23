@@ -254,6 +254,7 @@ String? frist_name;
                       if (reg_FormKey.currentState!.validate()) {
                         setState(() {
                           isLoading=true;
+                          phone_num.text = '01005619937';
                         });
                        await auth().signUp(context, email!, Password, Password2,
                             user_Name, frist_name, last_name);
