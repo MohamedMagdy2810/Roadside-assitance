@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:roadside_assitance/classes/shared_preferences.dart';
 import 'package:roadside_assitance/constants.dart';
 import 'package:roadside_assitance/models/data_response_model.dart';
+import 'package:roadside_assitance/views/phone_auth_view.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:roadside_assitance/models/api_auth_response_model.dart';
@@ -42,7 +43,14 @@ class auth {
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-
+ void navigateIfSuccessfulregister(BuildContext context, int statusCode) {
+  if (statusCode == 200 || statusCode == 201) {
+    showSnackbar(context, 'Successful');
+      Navigator.pushNamedAndRemoveUntil(context,PhoneAuthView.Id, (route) => false);
+  } else {
+    showSnackbar(context, 'Invalid, try again');
+  }
+}
   Future<dynamic> signUp(BuildContext context, String email, password,
       password2, username, firstName, lastName) async {
     http.Response response = await http.post(
@@ -63,7 +71,7 @@ class auth {
           api_response_model_login.fromJson(jsonResponse);
       await TokenManager.saveToken(responseModel.token);
       await userManager.saveName(responseModel.user.f_name);
-      navigateIfSuccessful(context, response.statusCode);
+      navigateIfSuccessfulregister(context, response.statusCode);
     }
 
     print(' status code is ===> ${response.statusCode}');
@@ -93,7 +101,7 @@ class auth {
           api_response_model_login.fromJson(jsonResponse);
       await TokenManager.saveToken(responseModel.token);
       await userManager.saveName(responseModel.user.f_name);
-      navigateIfSuccessful(context, response.statusCode);
+      navigateIfSuccessfulregister(context, response.statusCode);
     }
 
     print(' status code is ===> ${response.statusCode}');

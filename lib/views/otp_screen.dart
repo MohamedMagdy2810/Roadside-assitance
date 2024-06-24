@@ -1,37 +1,56 @@
-
 import 'package:flutter/material.dart';
 import 'package:roadside_assitance/views/home_view.dart';
 import 'package:roadside_assitance/widgets/custom_button.dart';
 
-class otpScreen extends StatelessWidget {
+class otpScreen extends StatefulWidget {
   static String Id = 'otpView';
   const otpScreen({
     super.key,
   });
 
   @override
+  _otpScreenState createState() => _otpScreenState();
+}
+
+class _otpScreenState extends State<otpScreen> {
+  bool _isLoading = false;
+
+  void _confirmOtp() {
+    setState(() {
+      _isLoading = true;
+    });
+
+    Future.delayed(const Duration(seconds: 3), () {
+      setState(() {
+        _isLoading = false;
+      });
+       Navigator.pushNamedAndRemoveUntil(context,homeView.Id, (route) => false);
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body:  Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 32.0),
+      // appBar: AppBar(),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 32.0,vertical: 60),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-           const SizedBox(
+            const SizedBox(
               height: 32,
             ),
-          const  Text(
+            const Text(
               'Enter the otp',
               style: TextStyle(
                   color: Color(0xff27541C),
                   fontSize: 16,
                   fontWeight: FontWeight.w500),
             ),
-          const  SizedBox(
+            const SizedBox(
               height: 32,
             ),
-          const  Center(
+            const Center(
               child: Row(
                 children: [
                   SizedBox(
@@ -53,27 +72,32 @@ class otpScreen extends StatelessWidget {
                 ],
               ),
             ),
-          const  SizedBox(
+            const SizedBox(
               height: 16,
             ),
-          const  Padding(
-              padding:  EdgeInsets.only(left: 24.0),
+            const Padding(
+              padding: EdgeInsets.only(left: 24.0),
               child: Text(
-                'I didn’t recive the OTP',
+                'I didn’t receive the OTP',
                 style: TextStyle(
                     color: Color(0xff27541C),
                     decoration: TextDecoration.underline,
-                    decorationColor: Color(0xff27541C)
-                    ),
+                    decorationColor: Color(0xff27541C)),
               ),
-            ),const SizedBox(
+            ),
+            const SizedBox(
               height: 32,
             ),
-            customButton(text: 'confirm',font_size: 16,
-          onTap: (){
-             Navigator.pushNamed(context, homeView.Id);
-          },  
-          )
+            if (_isLoading)
+              const Center(
+                child: CircularProgressIndicator(),
+              )
+            else
+              customButton(
+                text: 'confirm',
+                font_size: 16,
+                onTap: _confirmOtp,
+              ),
           ],
         ),
       ),
@@ -111,7 +135,6 @@ class _FourDigitInputState extends State<FourDigitInput> {
       child: TextFormField(
         controller: _controller,
         keyboardType: TextInputType.number,
-        // Removed maxLength property
         cursorColor: Colors.black,
         onChanged: (value) {
           if (value.length == 1) {
@@ -120,11 +143,9 @@ class _FourDigitInputState extends State<FourDigitInput> {
         },
         decoration: const InputDecoration(
           contentPadding: EdgeInsets.zero,
-          // Removed maxLength property
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.elliptical(0, 0)),
             borderSide: BorderSide(color: Color(0xffD9D9D9)),
-            // borderSide: BorderSide(color: Colors.black),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.elliptical(0, 0)),
@@ -132,7 +153,6 @@ class _FourDigitInputState extends State<FourDigitInput> {
           ),
           fillColor: Color(0xffD9D9D9),
           filled: true,
-          // Set counterText to empty string
           counterText: '',
         ),
         textAlign: TextAlign.center,
